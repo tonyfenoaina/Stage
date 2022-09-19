@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+   <head>
+      <title>Map with valid credentials</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
+      <script type="text/javascript">
+      var map = null;
+
+      function initMap()
+      {
+        map = new Microsoft.Maps.Map('#myMap', {
+                credentials: 'Amusif-Uc4Rs9pZBrU1EXmZMK2VG7--zQw5PJ8r72kIL9fP4EFS7WQw370dDbXIJ',
+                center: new Microsoft.Maps.Location(-19.000000,47.060000 ),
+                zoom: 7,
+                mapTypeId: Microsoft.Maps.MapTypeId.SATELLITE
+            });   
+      }   
+      </script>
+        <script src="https://www.bing.com/api/maps/mapcontrol?callback=initMap" async defer></script>
+   </head>
+
+   <body>
+    <div id='myMap' style='position:relative;width:1000px;height:800px;'></div>
+   </body>
+</html>

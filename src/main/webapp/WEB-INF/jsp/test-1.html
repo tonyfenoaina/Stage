@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <script type='text/javascript'>
+        var map;
+        //var location = new google.maps.LatLng(-18.397, 45.644);
+        
+
+        function initMap() {
+            map = new Microsoft.Maps.Map('#myMap', {
+                credentials: 'Amusif-Uc4Rs9pZBrU1EXmZMK2VG7--zQw5PJ8r72kIL9fP4EFS7WQw370dDbXIJ',
+                center: new Microsoft.Maps.Location(-18.766947,46.869107 ),
+                zoom: 7,
+                mapTypeId: Microsoft.Maps.MapTypeId.SATELLITE
+            });
+
+                var longitude = '<c:out value="${longitude}"/>'
+                var latitude = '<c:out value="${latitude}"/>'
+                 var nomType = '<c:out value="${nomType}"/>'
+                  var description = '<c:out value="${description}"/>'
+
+                longitude = longitude.replace("[","")
+                longitude = longitude.replace("]","")
+                 latitude = latitude.replace("[","")
+                latitude = latitude.replace("]","")
+                nomType = nomType.replace("[","")
+                nomType = nomType.replace("]","")
+                 description = description.replace("[","")
+                description = description.replace("]","")
+
+                 listelong = longitude.split(/[\s,]+/)
+                 listelat = latitude.split(/[\s,]+/)
+                 listenomType = nomType.split(/[\s,]+/)
+                 description = description.split(/[\s,]+/)
+
+            for (var i = 0; i < listelong.length; i++) {
+            var couleur = 'red'
+            var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(listelat[i],listelong[i]),{color: couleur });
+            var layer = new Microsoft.Maps.Layer();
+            layer.add(pushpin);
+            map.layers.insert(layer);
+
+
+
+            var infobox = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(listelat[i],listelong[i]), {
+            description: '<div style="padding:5px"><b><a href="/listeregion?description="'+description+'"">Affecter</a></b></br></br></br><input type="submit" value="Affecter"></div>',
+            visible: false
+            });
+
+            infobox.setMap(map);
+
+            Microsoft.Maps.Events.addHandler(pushpin, 'click', function () {
+            infobox.setOptions({ visible: true });
+            })
+                } 
+        }
+
+        
+    </script>
+
+    <!-- Bing Maps Script Reference -->
+    <script src="https://www.bing.com/api/maps/mapcontrol?callback=initMap" async defer></script>
+</head>
+<body>
+    <div id='myMap' style='position:relative;width:1000px;height:800px;'></div>
+</body>
+</html>
