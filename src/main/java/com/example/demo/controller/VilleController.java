@@ -41,7 +41,7 @@ public class VilleController {
 	  public ModelAndView ville(HttpSession session,
 			  Model m,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 		 Pageable paging = PageRequest.of(page, size);
 		 
 		 Page<Ville> pageTuts=  villeRep.listVille(paging);
@@ -60,7 +60,7 @@ public class VilleController {
 	  public ModelAndView listQuartier(HttpSession session,
 			  Model m,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 		 Pageable paging = PageRequest.of(page, size);		 
 		 Page<Ville> pageTuts=  villeRep.listVille(paging);
 		 int total = pageTuts.getTotalPages();
@@ -78,16 +78,22 @@ public class VilleController {
 	  public ModelAndView Ajouter(Model m,HttpSession session,
 			  @RequestParam(name = "nom",required = false) String nom,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
-
+		      @RequestParam(name="size", defaultValue = "6") int size) {
+			
+		
+//		System.out.print(villeRep.verifNom(nom));
+//
+//		if( villeRep.verifNom(nom)==null) {
+//			villeRep.save(new Ville(nom,"active"));
+//		}			
 			 Pageable paging = PageRequest.of(page, size);		 
-			 Page<Ville> pageTuts=  villeRep.listVille(paging);
+			 Page<Ville> pageTuts=  villeRep.listVille(paging);	
 			 int total = pageTuts.getTotalPages();
 			 List<Ville> listVille = new ArrayList<Ville>();
 			 listVille =  pageTuts.getContent();
 			m.addAttribute("total",total);  
 			m.addAttribute("current",page+1); 
-			villeRep.save(new Ville(nom,"active"));
+			
 			session.setAttribute("listVille", listVille);			
 			return new ModelAndView("crud/ville");			
 		}
@@ -117,7 +123,7 @@ public class VilleController {
 			  Model m,
 			  @RequestParam(name = "id",required = false) String id,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {	
+		      @RequestParam(name="size", defaultValue = "6") int size) {	
 		Ville q = new Ville();
 		q = villeRep.getById(Integer.parseInt(id));
 		q.setEtat("desactive");
@@ -139,7 +145,7 @@ public class VilleController {
 			  Model m,
 			  @RequestParam(name = "id",required = false) String id,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {	
+		      @RequestParam(name="size", defaultValue = "6") int size) {	
 		Ville q = new Ville();
 		q = villeRep.getById(Integer.parseInt(id));
 		q.setEtat("active");
@@ -163,7 +169,7 @@ public class VilleController {
 			  @RequestParam(name = "id",required = false) String id,
 			  @RequestParam(name = "nom",required = false) String nom,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 		
 		Ville q = new Ville();
 		q = villeRep.getById(Integer.parseInt(id));

@@ -76,45 +76,42 @@
                   </nav>
 
                   <h5 class="card-title">Nouvelle Enquete de Dn</h5>
-                  <form class="row g-3" style="margin-top: 10px;">
+                  <form action="/AjouterDn" method="post" class="row g-3" style="margin-top: 10px;">
                     <div class="col-md-1">
                      
                     </div>
                     <div class="col-md-10">
-                      <input type="text" class="form-control" placeholder="Titre">
+                      <input name="titre" type="text" class="form-control" placeholder="Titre">
                     </div>
-                    <div class="col-md-1">
-                     
-                    </div>
-                    <div class="col-md-1">
-                    </div>
-                   
-                    
-
-      
-
-                     <div class="col-md-5">
+                    <div class="col-md-1"> </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-5">
                       <label for="" class="form-label">Debut</label>
-                      <input type="date" class="form-control" placeholder="Debut">
+                      <input name="debut" type="date" class="form-control" placeholder="Debut">
                     </div>
                     <div class="col-md-5">
                       <label class="form-label" for="">Fin</label>
-                      <input type="date" class="form-control" placeholder="Fin">
+                      <input name="fin" type="date" class="form-control" placeholder="Fin">
                     </div>
 
                     <div class="col-md-1">          
                     </div>
-                   
-                   
-                   
-                    <div class="col-md-4">
-                     
+
+                     <div class="col-md-4"> 
                     </div>
                     <div class="col-md-4">
                       <label class="form-label" for="">Unite</label>
-                      <select id="inputState" class="form-select">
-                        <option  selected="">Choose...</option>
-                        <option>...</option>
+                      <select id="inputState" class="form-select" name="unite">
+                        <%
+                          ArrayList<Unite> listUniteinput = new ArrayList<Unite>();
+                            listUniteinput = (ArrayList<Unite>) session.getAttribute("listUniteinput");
+
+                            for(Unite u : listUniteinput){
+                        %>
+                        
+                        <option value="<%=u.getId()%>"><%=u.getNom()%></option>
+
+                        <%}%>
                       </select>
                     </div>
                     <div class="col-md-2">

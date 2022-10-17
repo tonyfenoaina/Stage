@@ -29,7 +29,7 @@ public ModelAndView Societe(HttpSession session,
 		  Model m,
 		  @RequestParam(name="id",required = false) int idCategorie,
 		  @RequestParam(name="page" ,defaultValue = "0") int page,
-	      @RequestParam(name="size", defaultValue = "10") int size) {
+	      @RequestParam(name="size", defaultValue = "6") int size) {
 	 Pageable paging = PageRequest.of(page, size);
 	 session.setAttribute("idCate", idCategorie);
 	 Page<Societe> pageTuts=  societeRep.listSociete(paging,idCategorie);
@@ -49,7 +49,7 @@ public ModelAndView Societe(HttpSession session,
 public ModelAndView RechercheSociete(Model m ,HttpSession session,
 		  @RequestParam(name = "nom",required = false) String nom,
 		  @RequestParam(name="page" ,defaultValue = "0") int page,
-	      @RequestParam(name="size", defaultValue = "10") int size) {	
+	      @RequestParam(name="size", defaultValue = "6") int size) {	
 		int idCateg = (int)session.getAttribute("idCate");
 	 Pageable paging = PageRequest.of(page, size);		 
 	m.addAttribute("total",1);  
@@ -68,7 +68,7 @@ public ModelAndView RechercheSociete(Model m ,HttpSession session,
 public ModelAndView listSociete(HttpSession session,
 		  Model m,
 		  @RequestParam(name="page" ,defaultValue = "0") int page,
-	      @RequestParam(name="size", defaultValue = "10") int size) {
+	      @RequestParam(name="size", defaultValue = "6") int size) {
 	int idCateg = (int)session.getAttribute("idCate");
 	 Pageable paging = PageRequest.of(page, size);		 
 	 Page<Societe> pageTuts=  societeRep.listSociete(paging,idCateg);
@@ -87,7 +87,7 @@ public ModelAndView listSociete(HttpSession session,
 public ModelAndView Ajouter(HttpSession session,Model m,
 		  @RequestParam(name = "nom",required = false) String nom,
 		  @RequestParam(name="page" ,defaultValue = "0") int page,
-	      @RequestParam(name="size", defaultValue = "10") int size) {
+	      @RequestParam(name="size", defaultValue = "6") int size) {
 		
 		int idCateg = (int)session.getAttribute("idCate");
 		societeRep.save(new Societe(nom,"active",idCateg ));
@@ -108,7 +108,7 @@ public ModelAndView Ajouter(HttpSession session,Model m,
 public ModelAndView DesactiveSociete(HttpSession session,  Model m,
 		  @RequestParam(name = "id",required = false) String id,
 		  @RequestParam(name="page" ,defaultValue = "0") int page,
-	      @RequestParam(name="size", defaultValue = "10") int size) {
+	      @RequestParam(name="size", defaultValue = "6") int size) {
 	int idCateg = (int)session.getAttribute("idCate");
 	Societe q = new Societe();
 	q = societeRep.getById(Integer.parseInt(id));
@@ -130,7 +130,7 @@ public ModelAndView DesactiveSociete(HttpSession session,  Model m,
 public ModelAndView ActiveSociete(HttpSession session,  Model m,
 		  @RequestParam(name = "id",required = false) String id,
 		  @RequestParam(name="page" ,defaultValue = "0") int page,
-	      @RequestParam(name="size", defaultValue = "10") int size) {	
+	      @RequestParam(name="size", defaultValue = "6") int size) {	
 	Societe q = new Societe();
 	int idCateg = (int)session.getAttribute("idCate");
 	q = societeRep.getById(Integer.parseInt(id));
@@ -153,7 +153,7 @@ public ModelAndView UpdateSociete(HttpSession session,Model m,
 		  @RequestParam(name = "id",required = false) String id,
 		  @RequestParam(name = "nom",required = false) String nom,
 		  @RequestParam(name="page" ,defaultValue = "0") int page,
-	      @RequestParam(name="size", defaultValue = "10") int size) {
+	      @RequestParam(name="size", defaultValue = "6") int size) {
 	int idCateg = (int)session.getAttribute("idCate");
 	Societe q = new Societe();
 	q = societeRep.getById(Integer.parseInt(id));

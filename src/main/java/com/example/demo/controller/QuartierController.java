@@ -38,7 +38,7 @@ public class QuartierController {
 	  public ModelAndView quartier(HttpSession session,
 			  Model m,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 		 Pageable paging = PageRequest.of(page, size);
 		 
 		 Page<Detailquartier> pageTuts=  detailquartierRep.listQuartier(paging);
@@ -59,7 +59,7 @@ public class QuartierController {
 	  public ModelAndView RechercheQuartier(Model m ,HttpSession session,
 			  @RequestParam(name = "nom",required = false) String nom,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {	
+		      @RequestParam(name="size", defaultValue = "6") int size) {	
 			
 		 Pageable paging = PageRequest.of(page, size);		 
 		m.addAttribute("total",1);  
@@ -78,7 +78,7 @@ public class QuartierController {
 	  public ModelAndView listQuartier(HttpSession session,
 			  Model m,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 		 Pageable paging = PageRequest.of(page, size);		 
 		 Page<Detailquartier> pageTuts=  detailquartierRep.listQuartier(paging);
 		 int total = pageTuts.getTotalPages();
@@ -97,7 +97,7 @@ public class QuartierController {
 			  @RequestParam(name = "nom",required = false) String nom,
 			  @RequestParam(name = "idville",required = false) int id,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 		
 			quartierRep.save(new Quartier(nom,"active",id));
 			
@@ -117,7 +117,7 @@ public class QuartierController {
 	  public ModelAndView DesactiveQuartier(HttpSession session,  Model m,
 			  @RequestParam(name = "id",required = false) String id,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {	
+		      @RequestParam(name="size", defaultValue = "6") int size) {	
 		Quartier q = new Quartier();
 		q = quartierRep.getById(Integer.parseInt(id));
 		q.setEtat("desactive");
@@ -138,7 +138,7 @@ public class QuartierController {
 	  public ModelAndView ActiveQuartier(HttpSession session,  Model m,
 			  @RequestParam(name = "id",required = false) String id,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {	
+		      @RequestParam(name="size", defaultValue = "6") int size) {	
 		Quartier q = new Quartier();
 		q = quartierRep.getById(Integer.parseInt(id));
 		q.setEtat("active");
@@ -160,7 +160,7 @@ public class QuartierController {
 			  @RequestParam(name = "id",required = false) String id,
 			  @RequestParam(name = "nom",required = false) String nom,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 		
 		Quartier q = new Quartier();
 		q = quartierRep.getById(Integer.parseInt(id));

@@ -18,4 +18,9 @@ public interface UtilisateurRep extends JpaRepository<Utilisateur, Integer> {
 	@Query(value = "SELECT  * from utilisateur where nom like :input", nativeQuery = true)
 	public ArrayList<Utilisateur> listUtilisateurRec(String input);
 	
+	@Query(value = "SELECT  * from utilisateur where matricule = :matricule and  motdepasse= :motdepasse", nativeQuery = true)
+	public Utilisateur login(String matricule , String motdepasse);
+	
+	
+	
 }

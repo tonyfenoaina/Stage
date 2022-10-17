@@ -28,7 +28,7 @@ CategorieRep categorieRep;
 public ModelAndView Categorie(HttpSession session,
 		  Model m,
 		  @RequestParam(name="page" ,defaultValue = "0") int page,
-	      @RequestParam(name="size", defaultValue = "10") int size) {
+	      @RequestParam(name="size", defaultValue = "6") int size) {
 	 Pageable paging = PageRequest.of(page, size);
 	 
 	 Page<Categorie> pageTuts=  categorieRep.listCategorie(paging);
@@ -37,7 +37,6 @@ public ModelAndView Categorie(HttpSession session,
 	 list =  pageTuts.getContent();
 	m.addAttribute("total",total);  
 	m.addAttribute("current",page+1); 
-	
 	session.setAttribute("listCategorie", list);
 	
 		return new ModelAndView("crud/categorie");
@@ -48,7 +47,7 @@ public ModelAndView Categorie(HttpSession session,
 public ModelAndView RechercheCategorie(Model m ,HttpSession session,
 		  @RequestParam(name = "nom",required = false) String nom,
 		  @RequestParam(name="page" ,defaultValue = "0") int page,
-	      @RequestParam(name="size", defaultValue = "10") int size) {	
+	      @RequestParam(name="size", defaultValue = "6") int size) {	
 		
 	 Pageable paging = PageRequest.of(page, size);		 
 	m.addAttribute("total",1);  
@@ -67,7 +66,7 @@ public ModelAndView RechercheCategorie(Model m ,HttpSession session,
 public ModelAndView listCategorie(HttpSession session,
 		  Model m,
 		  @RequestParam(name="page" ,defaultValue = "0") int page,
-	      @RequestParam(name="size", defaultValue = "10") int size) {
+	      @RequestParam(name="size", defaultValue = "6") int size) {
 	 Pageable paging = PageRequest.of(page, size);		 
 	 Page<Categorie> pageTuts=  categorieRep.listCategorie(paging);
 	 int total = pageTuts.getTotalPages();
@@ -85,7 +84,7 @@ public ModelAndView listCategorie(HttpSession session,
 public ModelAndView Ajouter(HttpSession session,Model m,
 		  @RequestParam(name = "nom",required = false) String nom,
 		  @RequestParam(name="page" ,defaultValue = "0") int page,
-	      @RequestParam(name="size", defaultValue = "10") int size) {
+	      @RequestParam(name="size", defaultValue = "6") int size) {
 	
 		categorieRep.save(new Categorie(nom,"active"));
 		
@@ -105,7 +104,7 @@ public ModelAndView Ajouter(HttpSession session,Model m,
 public ModelAndView DesactiveCategorie(HttpSession session,  Model m,
 		  @RequestParam(name = "id",required = false) String id,
 		  @RequestParam(name="page" ,defaultValue = "0") int page,
-	      @RequestParam(name="size", defaultValue = "10") int size) {	
+	      @RequestParam(name="size", defaultValue = "6") int size) {	
 	Categorie q = new Categorie();
 	q = categorieRep.getById(Integer.parseInt(id));
 	q.setEtat("desactive");
@@ -126,7 +125,7 @@ public ModelAndView DesactiveCategorie(HttpSession session,  Model m,
 public ModelAndView ActiveCategorie(HttpSession session,  Model m,
 		  @RequestParam(name = "id",required = false) String id,
 		  @RequestParam(name="page" ,defaultValue = "0") int page,
-	      @RequestParam(name="size", defaultValue = "10") int size) {	
+	      @RequestParam(name="size", defaultValue = "6") int size) {	
 	Categorie q = new Categorie();
 	q = categorieRep.getById(Integer.parseInt(id));
 	q.setEtat("active");
@@ -148,7 +147,7 @@ public ModelAndView Updatecategorie(HttpSession session,Model m,
 		  @RequestParam(name = "id",required = false) String id,
 		  @RequestParam(name = "nom",required = false) String nom,
 		  @RequestParam(name="page" ,defaultValue = "0") int page,
-	      @RequestParam(name="size", defaultValue = "10") int size) {
+	      @RequestParam(name="size", defaultValue = "6") int size) {
 	
 	Categorie q = new Categorie();
 	q = categorieRep.getById(Integer.parseInt(id));

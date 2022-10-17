@@ -44,8 +44,8 @@
             <!-- Top Selling -->
             
           
-            
-            <div class="col-6" >
+            <div class="col-1"></div>
+            <div class="col-5" >
               <div class="card top-selling overflow-auto">
 
                 <div class="filter">
@@ -61,7 +61,7 @@
                   </ul>
                 </div>
 
-                <div class="card-body pb-0">
+                <div style="min-height: 600px; max-height: 600px;" class="card-body pb-0">
                   
                   <!-- <nav class="header-nav ms-auto">
                     <ul class="d-flex align-items-center">
@@ -74,13 +74,13 @@
 
                   </nav>
 
-                  <h5 class="card-title">Choisir un marques</h5>
+                  <h5 class="card-title">Choisir un marque</h5>
                   <div style="margin-top: 20px;" class="row">
                 
                     <div class="col-4"></div>
 
                   <div class="col-5">
-                    <form action="/RechercheMarque" method="post">
+                    <form action="/RechercheMarquedn" method="post">
                       <div class="row">
                         <%
                             if(request.getAttribute("retour")!=null){                             
@@ -107,11 +107,12 @@
                   <table style="margin-top: 20px;" class="table table-borderless">
                     <thead>
                       <tr>
-                        <th scope="col">ID</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
                         <th scope="col">Marque</th>                      
                          <th scope="col">Societe</th>
-                         <th scope="col">Ajouter</th>
-                          <th scope="col">Produit</th>
+                         <th scope="col">Produits</th>
+                          <th scope="col">Ajouter</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -120,16 +121,24 @@
                         listMarque = (List<Detailmarque>)session.getAttribute("listMarque");
                   		for(Detailmarque s : listMarque){ 
                         
-                       
-                        
                         %>
                         
                         <tr>
-                          <th><%= s.getId() %></th>
+                          <th></th>
+                          <th></th>
                            <th><%= s.getNom() %></th>  
                            <th><%= s.getSociete() %></th>  
-                           <th><a href=""> <button style="background-color: #025ea7;" type="button" class="btn btn-primary"><i class="bx bxs-plus-circle"></i></button></a></th>  
-                          <th><a href=""><button style="background-color: #025ea7;" type="button" class="btn btn-primary"><i class="bi bi-arrow-right-square"></i></button></a></th>
+
+                           <th><form action="/PageproduitDn" method="get">
+                            <input type="hidden" name="idmarque" value="<%= s.getId() %>">
+                            <input type="hidden" name="nom" value="<%= s.getNom() %>">
+                            <button style="background-color: #025ea7;" type="submit" class="btn btn-primary"><i class="bi bi-bag-plus"></i></button>      
+                          </form></th>
+                          
+                          <th><form action="/AjouterMarquedn" method="post">
+                            <input type="hidden" name="idmarque" value="<%= s.getId() %>">
+                            <button style="background-color: #025ea7;" type="submit" class="btn btn-primary"><i class="bi bi-arrow-right-square"></i></button>      
+                          </form></th>
                         </tr>
                         
                        
@@ -155,7 +164,7 @@
                       </li>
 
                       <li class="page-item active" aria-current="page">
-                        <a style="background-color: #025ea7;" class="page-link" href="/pageMarque?page=<%=current-1%>"><%=current%></a>
+                        <a style="background-color: #025ea7;" class="page-link" href="/paginationMarquedn?page=<%=current-1%>"><%=current%></a>
                       </li>
                
                       <%
@@ -171,17 +180,17 @@
                       <%
                       }else if(total==2){
                     %>
-                    <li class="page-item"><a class="page-link" href="/pageMarque?page=<%=current%>"><%=current+1%></a></li>
-                    <li class="page-item disabled"><a class="page-link" href="/pageMarque?page=<%=current+1%>" aria-disabled="true"><%=current+2%></a></li>
+                    <li class="page-item"><a class="page-link" href="/paginationMarquedn?page=<%=current%>"><%=current+1%></a></li>
+                    <li class="page-item disabled"><a class="page-link" href="/paginationMarquedn?page=<%=current+1%>" aria-disabled="true"><%=current+2%></a></li>
                     <li class="page-item">
-                      <a class="page-link" href="/pageMarque?page=<%=next%>">Suivant</a>
+                      <a class="page-link" href="/paginationMarquedn?page=<%=next%>">Suivant</a>
                     </li>
                     <%} else {%>
 
-                      <li class="page-item"><a class="page-link" href="/pageMarque?page=<%=current%>"><%=current+1%></a></li>
-                      <li class="page-item"><a class="page-link" href="/pageMarque?page=<%=current+1%>"><%=current+2%></a></li>
+                      <li class="page-item"><a class="page-link" href="/paginationMarquedn?page=<%=current%>"><%=current+1%></a></li>
+                      <li class="page-item"><a class="page-link" href="/paginationMarquedn?page=<%=current+1%>"><%=current+2%></a></li>
                       <li class="page-item">
-                        <a class="page-link" href="/pageMarque?page=<%=next%>">Next</a>
+                        <a class="page-link" href="/paginationMarquedn?page=<%=next%>">Next</a>
                       </li>
 
                       <%}%>
@@ -198,17 +207,17 @@
                   <nav style="margin-left: 20px;margin-top: 30px;" aria-label="...">
                     <ul class="pagination">
                       <li class="page-item ">
-                        <a class="page-link" href="/pageMarque?page=<%=previous%>" tabindex="-1" >Precedent</a>
+                        <a class="page-link" href="/paginationMarquedn?page=<%=previous%>" tabindex="-1" >Precedent</a>
                       </li>
                     
                      
-                      <li class="page-item"><a class="page-link" href="/pageMarque?page=<%=current-2%>"><%=current-1%></a></li>
+                      <li class="page-item"><a class="page-link" href="/paginationMarquedn?page=<%=current-2%>"><%=current-1%></a></li>
   
                       <li class="page-item active" aria-current="page">
-                        <a style="background-color: #025ea7;" class="page-link" href="/pageMarque?page=<%=current-1%>"><%=current%></a>
+                        <a style="background-color: #025ea7;" class="page-link" href="/paginationMarquedn?page=<%=current-1%>"><%=current%></a>
                       </li>
 
-                      <li class="page-item disabled"><a class="page-link" href="/pageMarque?page=<%=current%>" aria-disabled="true"><%=current+1%></a></li>
+                      <li class="page-item disabled"><a class="page-link" href="/paginationMarquedn?page=<%=current%>" aria-disabled="true"><%=current+1%></a></li>
   
                       <li class="page-item disabled">
                         <a class="page-link" href="#" aria-disabled="true">Suivant</a>
@@ -222,14 +231,14 @@
                 <nav style="margin-left: 20px;margin-top: 30px;" aria-label="...">
                   <ul class="pagination">
                     <li class="page-item ">
-                      <a class="page-link" href="/pageMarque?page=<%=previous%>" tabindex="-1" >Precedent</a>
+                      <a class="page-link" href="/paginationMarquedn?page=<%=previous%>" tabindex="-1" >Precedent</a>
                     </li>
-                    <li class="page-item"><a class="page-link" href="/pageMarque?page=<%=current-3%>"><%=current-2%></a></li>
+                    <li class="page-item"><a class="page-link" href="/paginationMarquedn?page=<%=current-3%>"><%=current-2%></a></li>
                    
-                    <li class="page-item"><a class="page-link" href="/pageMarque?page=<%=current-2%>"><%=current-1%></a></li>
+                    <li class="page-item"><a class="page-link" href="/paginationMarquedn?page=<%=current-2%>"><%=current-1%></a></li>
 
                     <li class="page-item active" aria-current="page">
-                      <a style="background-color: #025ea7;" class="page-link" href="/pageMarque?page=<%=current-1%>"><%=current%></a>
+                      <a style="background-color: #025ea7;" class="page-link" href="/paginationMarquedn?page=<%=current-1%>"><%=current%></a>
                     </li>
 
                     <li class="page-item disabled">
@@ -243,30 +252,30 @@
                 <nav style="margin-left: 20px;margin-top: 30px;" aria-label="...">
                   <ul class="pagination">
                     <li class="page-item ">
-                      <a class="page-link" href="/pageMarque?page=<%=previous%>" tabindex="-1">Precedent</a>
+                      <a class="page-link" href="/paginationMarquedn?page=<%=previous%>" tabindex="-1">Precedent</a>
                     </li>
                       <%  if(current==2 && total==2){
                       %>
 
-                    <li class="page-item"><a class="page-link" href="/pageMarque?page=<%=current-2%>"><%=current-1%></a></li>
+                    <li class="page-item"><a class="page-link" href="/paginationMarquedn?page=<%=current-2%>"><%=current-1%></a></li>
                     <li class="page-item active" aria-current="page">
-                      <a style="background-color: #025ea7;" class="page-link" href="/pageMarque?page=<%=current-1%>"><%=current%></a>
+                      <a style="background-color: #025ea7;" class="page-link" href="/paginationMarquedn?page=<%=current-1%>"><%=current%></a>
                     </li>
-                    <li class="page-item disabled"><a class="page-link" href="/pageMarque?page=<%=current%>" aria-disabled="true"><%=current+1%></a></li>
+                    <li class="page-item disabled"><a class="page-link" href="/paginationMarquedn?page=<%=current%>" aria-disabled="true"><%=current+1%></a></li>
                     <li class="page-item disabled">
-                      <a class="page-link" href="/pageMarque?page=<%=next%>" aria-disabled="true">Suivant</a>
+                      <a class="page-link" href="/paginationMarquedn?page=<%=next%>" aria-disabled="true">Suivant</a>
                     </li>
                     <%
                       }else{
                     %>
 
-                    <li class="page-item"><a class="page-link" href="/pageMarque?page=<%=current-2%>"><%=current-1%></a></li>
+                    <li class="page-item"><a class="page-link" href="/paginationMarquedn?page=<%=current-2%>"><%=current-1%></a></li>
                     <li class="page-item active" aria-current="page">
-                      <a style="background-color: #025ea7;" class="page-link" href="/pageMarque?page=<%=current-1%>"><%=current%></a>
+                      <a style="background-color: #025ea7;" class="page-link" href="/paginationMarquedn?page=<%=current-1%>"><%=current%></a>
                     </li>
-                    <li class="page-item"><a class="page-link" href="/pageMarque?page=<%=current%>"><%=current+1%></a></li>
+                    <li class="page-item"><a class="page-link" href="/paginationMarquedn?page=<%=current%>"><%=current+1%></a></li>
                     <li class="page-item">
-                      <a class="page-link" href="/pageMarque?page=<%=next%>" >Suivant</a>
+                      <a class="page-link" href="/paginationMarquedn?page=<%=next%>" >Suivant</a>
                     </li>
 
                     <%}%>
@@ -279,7 +288,7 @@
               </div>
             </div>
 
-            <div class="col-6">
+            <div class="col-5">
               <div class="card top-selling overflow-auto">
 
                 <div class="filter">
@@ -295,7 +304,7 @@
                   </ul>
                 </div>
 
-                <div class="card-body pb-0">
+                <div style="min-height: 600px; max-height: 600px;" class="card-body pb-0">
                   
                   <!-- <nav class="header-nav ms-auto">
                     <ul class="d-flex align-items-center">
@@ -304,56 +313,68 @@
                           <i class="bi bi-search"></i>
                         </a>
                       </li>
-                    </ul> -->
+                    </ul>
 
-                  </nav>
-
-                  <h5 class="card-title">Choisir un Produit</h5>
+                  </nav> -->
+                  <h5 class="card-title">Produits</h5>
                   <div style="margin-top: 20px;" class="row">
  
                     <div class="col-4"></div>
-                  <div class="col-5">
-                    <form action="/RechercheCategorieDn" method="post">
-                      <div class="row">
-                        <%
-                            if(request.getAttribute("retour")!=null){                             
-                        %>
-                        <div class="col-6">
-                          <input type="search" name="nom" id="nom"  class="form-control" placeholder="Recherche" value="<%= request.getAttribute("retour") %>">
-                        </div>
-                        <%}else{%>
-                          <div class="col-6">
-                            <input type="search" name="nom" id="nom"  class="form-control" placeholder="Recherche">
-                          </div>
-                        <%}%>
-                        <div class="col-2">
-                          <input class="btn btn-primary" style="margin-top: 0px;background-color: #025ea7;color: white;" type="submit" value="Rechercher">    
-                        </div>
-                      </div>           
-                    </form>
+                  <div class="col-6">
+                    <img style="max-width: 100px;" src="assets/img/logoh.png" alt="">
                   </div>
                 </div>
-               
+                    <table width="20px" style="margin-top: 10px;margin-left: 40px;" class="table">
+                      <thead>
+                        <tr>
+                         
+                          <th scope="col">Produits</th>                      
+                          
+                            <th scope="col">Enlever</th>
+                        </tr>
+                      </thead>
+                      <tbody >
+                        <%
+                        List<Detailproduitdn> listproduit = new ArrayList<Detailproduitdn>();
+                          listproduit = (List<Detailproduitdn>)session.getAttribute("listproduitdn");
+      
+                          for (Detailproduitdn d : listproduit){
+                       %>
 
-                  <table style="margin-top: 20px;" class="table table-borderless">
-                    <thead>
-                      <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">NOM</th>
-                        <th scope="col">Effacer</th>                       
-                      </tr>
-                    </thead>
-                    <tbody>
-                  		                                      
-                     </tbody>
+                          <tr style="margin-top: 30px;">
+                            <th ><%=d.getMarque()%> 
+                            <%if (d.getProduit()!= null){
+                              %>
+                              <%=d.getProduit()%></th>
+
+                              <%}%>
+                            <th>
+                              <form action="/DeleteMarquedn" method="get">
+                                <input type="hidden" name="id" value="<%=d.getId()%>">
+                                <button type="submit" style="background-color: #025ea7;" class="btn btn-primary">
+                                  <i style="color: aliceblue;" class="ri-delete-bin-6-fill"></i>
+                                  </button>
+                              </form> 
+                          </th>
+                             
+                          </tr>
+                          
+                         
+                        <% } %>
+           
+                      </tbody>
                     </table>
-                    
+
                   <%
+                  int current1 = (int)request.getAttribute("current1");
+                    int total1 = (int)request.getAttribute("total1");
+                    int previous1 = current1-2;
+                    int next1 = current1;
                    
                   %>
 
                   <%
-                    if(current==1){
+                    if(current1==1){
                   %>
                   <nav style="margin-left: 20px;margin-top: 30px;" aria-label="...">
                     <ul class="pagination">
@@ -362,33 +383,33 @@
                       </li>
 
                       <li class="page-item active" aria-current="page">
-                        <a style="background-color: #025ea7;" class="page-link" href="/pageCategorie?page=<%=current-1%>"><%=current%></a>
+                        <a style="background-color: #025ea7;" class="page-link" href="/paginationMarquedn?page1=<%=current1-1%>"><%=current1%></a>
                       </li>
                
-                      <%
-                      if(total==1){
+                      <%	
+                      if(total1==1){
                     %>
-                      <li class="page-item disabled"><a class="page-link" href="#" aria-disabled="true"><%=current+1%></a></li>
-                      <li class="page-item disabled"><a class="page-link" href="#" aria-disabled="true"><%=current+2%></a></li>
+                      <li class="page-item disabled"><a class="page-link" href="#" aria-disabled="true"><%=current1+1%></a></li>
+                      <li class="page-item disabled"><a class="page-link" href="#" aria-disabled="true"><%=current1+2%></a></li>
                       <li class="page-item disabled">
                         <a class="page-link" href="#" aria-disabled="true">Suivant</a>
 
                       </li>
 
                       <%
-                      }else if(total==2){
+                      }else if(total1==2){
                     %>
-                    <li class="page-item"><a class="page-link" href="/pageCategorie?page=<%=current%>"><%=current+1%></a></li>
-                    <li class="page-item disabled"><a class="page-link" href="/pageCategorie?page=<%=current+1%>" aria-disabled="true"><%=current+2%></a></li>
+                    <li class="page-item"><a class="page-link" href="/paginationMarquedn?page1=<%=current1%>"><%=current1+1%></a></li>
+                    <li class="page-item disabled"><a class="page-link" href="/paginationMarquedn?page1=<%=current1+1%>" aria-disabled="true"><%=current1+2%></a></li>
                     <li class="page-item">
-                      <a class="page-link" href="/pageCategorie?page=<%=next%>">Suivant</a>
+                      <a class="page-link" href="/paginationMarquedn?page1=<%=next1%>">Suivant</a>
                     </li>
                     <%} else {%>
 
-                      <li class="page-item"><a class="page-link" href="/pageCategorie?page=<%=current%>"><%=current+1%></a></li>
-                      <li class="page-item"><a class="page-link" href="/pageCategorie?page=<%=current+1%>"><%=current+2%></a></li>
+                      <li class="page-item"><a class="page-link" href="/paginationMarquedn?page1=<%=current1%>"><%=current1+1%></a></li>
+                      <li class="page-item"><a class="page-link" href="/paginationMarquedn?page1=<%=current1+1%>"><%=current1+2%></a></li>
                       <li class="page-item">
-                        <a class="page-link" href="/pageCategorie?page=<%=next%>">Next</a>
+                        <a class="page-link" href="/paginationMarquedn?page1=<%=next1%>">Suivant</a>
                       </li>
 
                       <%}%>
@@ -399,23 +420,23 @@
 
                   
 
-                  <%} else if(current==total && current!=1){
-                      if(total==2){
+                  <%} else if(current1==total1 && current1!=1){
+                      if(total1==2){
                   %>
                   <nav style="margin-left: 20px;margin-top: 30px;" aria-label="...">
                     <ul class="pagination">
                       <li class="page-item ">
-                        <a class="page-link" href="/pageCategorie?page=<%=previous%>" tabindex="-1" >Precedent</a>
+                        <a class="page-link" href="/paginationMarquedn?page1=<%=previous1%>" tabindex="-1" >Precedent</a>
                       </li>
                     
                      
-                      <li class="page-item"><a class="page-link" href="/pageCategorie?page=<%=current-2%>"><%=current-1%></a></li>
+                      <li class="page-item"><a class="page-link" href="/paginationMarquedn?page1=<%=current1-2%>"><%=current1-1%></a></li>
   
                       <li class="page-item active" aria-current="page">
-                        <a style="background-color: #025ea7;" class="page-link" href="/pageCategorie?page=<%=current-1%>"><%=current%></a>
+                        <a style="background-color: #025ea7;" class="page-link" href="/paginationMarquedn?page1=<%=current1-1%>"><%=current1%></a>
                       </li>
 
-                      <li class="page-item disabled"><a class="page-link" href="/pageCategorie?page=<%=current%>" aria-disabled="true"><%=current+1%></a></li>
+                      <li class="page-item disabled"><a class="page-link" href="/paginationMarquedn?page1=<%=current1%>" aria-disabled="true"><%=current1+1%></a></li>
   
                       <li class="page-item disabled">
                         <a class="page-link" href="#" aria-disabled="true">Suivant</a>
@@ -429,14 +450,14 @@
                 <nav style="margin-left: 20px;margin-top: 30px;" aria-label="...">
                   <ul class="pagination">
                     <li class="page-item ">
-                      <a class="page-link" href="/pageCategorie?page=<%=previous%>" tabindex="-1" >Precedent</a>
+                      <a class="page-link" href="/paginationMarquedn?page1=<%=previous1%>" tabindex="-1" >Precedent</a>
                     </li>
-                    <li class="page-item"><a class="page-link" href="/pageCategorie?page=<%=current-3%>"><%=current-2%></a></li>
+                    <li class="page-item"><a class="page-link" href="/paginationMarquedn?page1=<%=current1-3%>"><%=current1-2%></a></li>
                    
-                    <li class="page-item"><a class="page-link" href="/pageCategorie?page=<%=current-2%>"><%=current-1%></a></li>
+                    <li class="page-item"><a class="page-link" href="/paginationMarquedn?page1=<%=current1-2%>"><%=current1-1%></a></li>
 
                     <li class="page-item active" aria-current="page">
-                      <a style="background-color: #025ea7;" class="page-link" href="/pageCategorie?page=<%=current-1%>"><%=current%></a>
+                      <a style="background-color: #025ea7;" class="page-link" href="/paginationMarquedn?page1=<%=current1-1%>"><%=current1%></a>
                     </li>
 
                     <li class="page-item disabled">
@@ -450,30 +471,30 @@
                 <nav style="margin-left: 20px;margin-top: 30px;" aria-label="...">
                   <ul class="pagination">
                     <li class="page-item ">
-                      <a class="page-link" href="/pageCategorie?page=<%=previous%>" tabindex="-1">Precedent</a>
+                      <a class="page-link" href="/paginationMarquedn?page1=<%=previous1%>" tabindex="-1">Precedent</a>
                     </li>
-                      <%  if(current==2 && total==2){
+                      <%  if(current1==2 && total1==2){
                       %>
 
-                    <li class="page-item"><a class="page-link" href="/pageCategorie?page=<%=current-2%>"><%=current-1%></a></li>
+                    <li class="page-item"><a class="page-link" href="/paginationMarquedn?page1=<%=current1-2%>"><%=current1-1%></a></li>
                     <li class="page-item active" aria-current="page">
-                      <a style="background-color: #025ea7;" class="page-link" href="/pageCategorie?page=<%=current-1%>"><%=current%></a>
+                      <a style="background-color: #025ea7;" class="page-link" href="/paginationMarquedn?page1=<%=current1-1%>"><%=current1%></a>
                     </li>
-                    <li class="page-item disabled"><a class="page-link" href="/pageCategorie?page=<%=current%>" aria-disabled="true"><%=current+1%></a></li>
+                    <li class="page-item disabled"><a class="page-link" href="/paginationMarquedn?page1=<%=current1%>" aria-disabled="true"><%=current1+1%></a></li>
                     <li class="page-item disabled">
-                      <a class="page-link" href="/pageCategorie?page=<%=next%>" aria-disabled="true">Suivant</a>
+                      <a class="page-link" href="/paginationMarquedn?page1=<%=next1%>" aria-disabled="true">Suivant</a>
                     </li>
                     <%
                       }else{
                     %>
 
-                    <li class="page-item"><a class="page-link" href="/pageCategorie?page=<%=current-2%>"><%=current-1%></a></li>
+                    <li class="page-item"><a class="page-link" href="/paginationMarquedn?page1=<%=current1-2%>"><%=current1-1%></a></li>
                     <li class="page-item active" aria-current="page">
-                      <a style="background-color: #025ea7;" class="page-link" href="/pageCategorie?page=<%=current-1%>"><%=current%></a>
+                      <a style="background-color: #025ea7;" class="page-link" href="/paginationMarquedn?page1=<%=current1-1%>"><%=current1%></a>
                     </li>
-                    <li class="page-item"><a class="page-link" href="/pageCategorie?page=<%=current%>"><%=current+1%></a></li>
+                    <li class="page-item"><a class="page-link" href="/paginationMarquedn?page1=<%=current1%>"><%=current1+1%></a></li>
                     <li class="page-item">
-                      <a class="page-link" href="/pageCategorie?page=<%=next%>" >Suivant</a>
+                      <a class="page-link" href="/paginationMarquedn?page1=<%=next1%>" >Suivant</a>
                     </li>
 
                     <%}%>
@@ -485,6 +506,8 @@
 
               </div>
             </div>
+
+            <div class="col-1"></div>
             
             <!-- End Top Selling -->
 

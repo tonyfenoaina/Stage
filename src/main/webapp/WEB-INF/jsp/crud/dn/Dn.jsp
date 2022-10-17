@@ -131,14 +131,12 @@
                         <th scope="col">Categorie</th>
                         <th scope="col">Unite</th>
                         <th scope="col">Modifier</th>
-                      
-                        
+                        <th scope="col">Produits </th>
+                     
                       </tr>
                     </thead>
                     <tbody>
                   		<%  for(Detaildn s : listDn){ %>
-                        
-                        
                         
                         <tr>
                           <th><%= s.getId() %></th>
@@ -149,16 +147,35 @@
                            <th><%= s.getUnite()%></th>                
                           <td> <button data-bs-toggle="modal" data-bs-target="#haha<%=s.getId()%>" style="background-color: #025ea7;" type="button" class="btn btn-primary"><i class="ri-edit-2-fill"></i></button></td>
                           
-                      <div class="modal fade" id="haha<%= s.getId()%>" tabindex="-1">
+                           <div class="modal fade" id="haha<%= s.getId()%>" tabindex="-1">
                         <div class="modal-dialog modal-dialog-centered">
                           <div class="modal-content">
                             <div style="background-color: #025ea7;" class="modal-header">
-                              <h5 class="modal-title" style="color: white;">Modification de la Ville numero <%=s.getId() %></h5>
+                              <h5 class="modal-title" style="color: white;">Modification du fiche de Dn Numero<%=s.getId() %></h5>
                             </div>
                             <form action="/UpdateDn" method="post">
                               <div class="modal-body">
-                                <label for="">titre</label>
+                                <label for="">Titre</label>
                                 <input style="margin-top: 20px;" class="form-control" type="text" name="titre" value="<%= s.getTitre() %>">
+                                <label for="">Debut</label>
+                                <input style="margin-top: 20px;" class="form-control" type="date" name="debut" value="<%= s.getDebut() %>">
+                                <label for="">Fin</label>
+                                <input style="margin-top: 20px;" class="form-control" type="date" name="fin" value="<%= s.getFin() %>">
+                                <label class="form-label" for="">Unite</label>
+                                <select id="inputState" class="form-select" name="unite">
+                                  <option value="<%=s.getIdunite()%>"><%=s.getUnite()%></option>
+                                  <%
+                                    ArrayList<Unite> listUniteinput = new ArrayList<Unite>();
+                                      listUniteinput = (ArrayList<Unite>) session.getAttribute("listUniteinput");
+          
+                                      for(Unite u : listUniteinput){
+                                  %>
+                                  
+                                  <option value="<%=u.getId()%>"><%=u.getNom()%></option>
+          
+                                  <%}%>
+                                </select>
+
                                 <input type="hidden" name="id" value="<%= s.getId() %>">                  
                               </div>
                               <div class="modal-footer">
@@ -169,13 +186,11 @@
                             </form>
                           </div>
                         </div>
-                      </div>
-                      
-                     
+                           </div>
+
+                           <th><a href="produitDn?iddn=<%= s.getId()%>&idcategorie=<%= s.getIdcategorie()%>"><button style="background-color: #025ea7;" type="button" class="btn btn-primary">  <i class="bx bx-basket"></i></button></a></th>
                         </tr>
-                        
-                       
-                      
+                     
                       <% } %>
          
                     </tbody>

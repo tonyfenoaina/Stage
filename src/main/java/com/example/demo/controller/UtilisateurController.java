@@ -18,9 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.model.DetailUtilisateur;
+import com.example.demo.model.Detaildn;
 import com.example.demo.model.Utilisateur;
 import com.example.demo.repository.DetailUtilisateurRep;
+import com.example.demo.repository.DetaildnRep;
 import com.example.demo.repository.FonctionRep;
+import com.example.demo.repository.UniteRep;
 import com.example.demo.repository.UtilisateurRep;
 
 @RestController
@@ -34,11 +37,11 @@ public class UtilisateurController {
 	@Autowired
 	FonctionRep fonctionRep;
 	
-	 @GetMapping(path = "/Utilisateur")
+	 @GetMapping(path = "/utilisateur")
 	  public ModelAndView Utilisateur(HttpSession session,
 			  Model m,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 		 Pageable paging = PageRequest.of(page, size);
 		 session.setAttribute("fonctionInput",fonctionRep.findAll());
 		 System.out.println("haa"+fonctionRep.findAll().get(0).getNom());
@@ -58,7 +61,7 @@ public class UtilisateurController {
 	  public ModelAndView listQuartier(HttpSession session,
 			  Model m,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 		 Pageable paging = PageRequest.of(page, size);		 
 		 Page<DetailUtilisateur> pageTuts=  detailutilisateurRep.listDetailUtilisateur(paging);
 		 int total = pageTuts.getTotalPages();
@@ -78,7 +81,7 @@ public class UtilisateurController {
 			  @RequestParam(name = "matricule",required = false) String matricule,
 			  @RequestParam(name = "motdepasse",required = false) String motdepasse,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 			utilisateurRep.save(new Utilisateur(nom,prenom,fonction,matricule, motdepasse,"responsable","active"));
 			 Pageable paging = PageRequest.of(page, size);		 
 			 Page<DetailUtilisateur> pageTuts=  detailutilisateurRep.listDetailUtilisateur(paging);
@@ -117,7 +120,7 @@ public class UtilisateurController {
 			  Model m,
 			  @RequestParam(name = "id",required = false) String id,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {	
+		      @RequestParam(name="size", defaultValue = "6") int size) {	
 		Utilisateur q = new Utilisateur();
 		q = utilisateurRep.getById(Integer.parseInt(id));
 		q.setEtat("desactive");
@@ -139,7 +142,7 @@ public class UtilisateurController {
 			  Model m,
 			  @RequestParam(name = "id",required = false) String id,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {	
+		      @RequestParam(name="size", defaultValue = "6") int size) {	
 		Utilisateur q = new Utilisateur();
 		q = utilisateurRep.getById(Integer.parseInt(id));
 		q.setEtat("active");
@@ -156,8 +159,6 @@ public class UtilisateurController {
 			return new ModelAndView("crud/utilisateur");			
 		}
 	
-	
-	
 	@PostMapping(path = "/UpdateUtilisateur")
 	  public ModelAndView UpdateQuartier(HttpSession session,Model m,
 			  @RequestParam(name = "id",required = false) String id,
@@ -167,7 +168,7 @@ public class UtilisateurController {
 			  @RequestParam(name = "matricule",required = false) String matricule,
 			  @RequestParam(name = "motdepasse",required = false) String motdepasse,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 		
 		Utilisateur q = new Utilisateur();
 		q = utilisateurRep.getById(Integer.parseInt(id));
@@ -186,10 +187,49 @@ public class UtilisateurController {
 		m.addAttribute("current",page+1); 
 			String noms = nom;
 			nom = "%"+nom+"%";
-			session.setAttribute("listUtilisateur", listUtilisateur);
-		
-		
+			session.setAttribute("listUtilisateur", listUtilisateur);				
 		//session.setAttribute("listUtilisateur", utilisateurRep.listUtilisateur());
 			return new ModelAndView("crud/utilisateur");			
+		}
+	@Autowired
+	DetaildnRep detaildnRep;
+	@Autowired
+	UniteRep uniteRep;
+	
+	@PostMapping(path = "/login")
+	  public ModelAndView login(Model m,HttpSession session,
+			  @RequestParam(name="page" ,defaultValue = "0") int page,
+		      @RequestParam(name="size", defaultValue = "6") int size,
+			  @RequestParam(name = "matricule",required = false) String matricule,
+			  @RequestParam(name = "motdepasse",required = false) String motdepasse) {		
+		String view = "";
+		Utilisateur u = new Utilisateur();
+		u =  utilisateurRep.login(matricule, motdepasse);
+		if (u!=null) {
+			 Pageable paging = PageRequest.of(page, size); 
+			 session.setAttribute("listUniteinput",uniteRep.findAll());
+			 Page<Detaildn> pageTuts=  detaildnRep.listDetaildn(paging);
+			 int total = pageTuts.getTotalPages();
+			 List<Detaildn> listDn = new ArrayList<Detaildn>();
+			 listDn =  pageTuts.getContent();
+			m.addAttribute("total",total);  
+			m.addAttribute("current",page+1); 
+			session.setAttribute("listUniteinput",uniteRep.findAll());
+			session.setAttribute("listDn", listDn);	
+			session.setAttribute("utilisateur", u);
+			System.out.println("roleeeeeeeeeeeeee");
+			view = "crud/dn/Dn";
+		}else {			
+			m.addAttribute("error","error");
+			view = "login";
+			System.out.println("tsyyyyyyyyyyyyyroleeeeeeeeeeeeee");		
+		}		
+		return new ModelAndView(view);		
+		}	
+	
+	@PostMapping(path = "/logout")
+	  public ModelAndView logout(Model m,HttpSession session) {		
+		session.invalidate();
+		return new ModelAndView("login");		
 		}
 }

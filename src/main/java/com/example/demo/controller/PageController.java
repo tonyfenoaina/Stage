@@ -18,13 +18,11 @@ import com.example.demo.repository.DetailquartierRep;
 import com.example.demo.repository.QuartierRep;
 import com.example.demo.repository.VilleRep;
 
-
 @Controller
 public class PageController {
 	@Autowired
 	QuartierRep quartierRep;
-	@Autowired
-	VilleRep villeRep;
+	
 	
 	@Autowired
 	DetailquartierRep detailquartierRep;
@@ -39,6 +37,11 @@ public class PageController {
 			return new ModelAndView("index");
 		}
 	 
+	
+	 @GetMapping(path = "/suivie")
+	  public ModelAndView suivie() {		 	
+			return new ModelAndView("carte");
+		}
 	
 	
 }

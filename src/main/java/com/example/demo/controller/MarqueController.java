@@ -46,7 +46,7 @@ public class MarqueController {
 			  @RequestParam(name="id",required = false) int idCategorie,
 			  @RequestParam(name="nomCategorie",required = false) String nomCategorie,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 		session.setAttribute("idCateg", idCategorie);
 		 session.setAttribute("nomCategorie", nomCategorie);
 		 Pageable paging = PageRequest.of(page, size);
@@ -70,7 +70,7 @@ public class MarqueController {
 			  
 			  @RequestParam(name = "nom",required = false) String nom,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {	
+		      @RequestParam(name="size", defaultValue = "6") int size) {	
 		int idCateg = (int)session.getAttribute("idCateg");
 		 Pageable paging = PageRequest.of(page, size);		 
 		m.addAttribute("total",1);  
@@ -89,7 +89,7 @@ public class MarqueController {
 	  public ModelAndView listMarque(HttpSession session,
 			  Model m,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 		int idCateg = (int)session.getAttribute("idCateg");
 		 Pageable paging = PageRequest.of(page, size);		 
 		 Page<Detailmarque> pageTuts=  detailmarqueRep.listMarque(paging,idCateg);
@@ -109,7 +109,7 @@ public class MarqueController {
 			  @RequestParam(name = "nom",required = false) String nom,
 			  @RequestParam(name = "idsociete",required = false) int idsociete,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 			int idCateg = (int)session.getAttribute("idCateg");
 			MarqueRep.save(new Marque(nom,"active",idCateg,idsociete));
 			
@@ -129,7 +129,7 @@ public class MarqueController {
 	  public ModelAndView DesactiveMarque(HttpSession session,  Model m,
 			  @RequestParam(name = "id",required = false) String id,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {	
+		      @RequestParam(name="size", defaultValue = "6") int size) {	
 		Marque q = new Marque();
 		int idCateg = (int)session.getAttribute("idCateg");
 		q = MarqueRep.getById(Integer.parseInt(id));
@@ -151,7 +151,7 @@ public class MarqueController {
 	  public ModelAndView ActiveMarque(HttpSession session,  Model m,
 			  @RequestParam(name = "id",required = false) String id,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {	
+		      @RequestParam(name="size", defaultValue = "6") int size) {	
 		Marque q = new Marque();
 		int idCateg = (int)session.getAttribute("idCateg");
 		q = MarqueRep.getById(Integer.parseInt(id));
@@ -175,7 +175,7 @@ public class MarqueController {
 			  @RequestParam(name = "nom",required = false) String nom,
 			  @RequestParam(name = "idsociete",required = false) int idsociete,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 		
 		Marque q = new Marque();
 		int idCateg = (int)session.getAttribute("idCateg");

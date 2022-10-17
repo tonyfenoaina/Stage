@@ -26,11 +26,11 @@ public class EnqueteurController {
 	@Autowired
 	EnqueteurRep enqueteurRep;
 	
-	 @GetMapping(path = "/Enqueteur")
+	 @GetMapping(path = "/enqueteur")
 	  public ModelAndView Enqueteur(HttpSession session,
 			  Model m,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 		 Pageable paging = PageRequest.of(page, size);
 		 
 		 Page<Enqueteur> pageTuts=  enqueteurRep.listEnqueteur(paging);
@@ -49,7 +49,7 @@ public class EnqueteurController {
 	  public ModelAndView listQuartier(HttpSession session,
 			  Model m,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 		 Pageable paging = PageRequest.of(page, size);		 
 		 Page<Enqueteur> pageTuts=  enqueteurRep.listEnqueteur(paging);
 		 int total = pageTuts.getTotalPages();
@@ -70,7 +70,7 @@ public class EnqueteurController {
 			  @RequestParam(name = "matricule",required = false) String matricule,
 			  @RequestParam(name = "motdepasse",required = false) String motdepasse,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 
 			 Pageable paging = PageRequest.of(page, size);		 
 			 Page<Enqueteur> pageTuts=  enqueteurRep.listEnqueteur(paging);
@@ -109,7 +109,7 @@ public class EnqueteurController {
 			  Model m,
 			  @RequestParam(name = "id",required = false) String id,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {	
+		      @RequestParam(name="size", defaultValue = "6") int size) {	
 		Enqueteur q = new Enqueteur();
 		q = enqueteurRep.getById(Integer.parseInt(id));
 		q.setEtat("desactive");
@@ -131,7 +131,7 @@ public class EnqueteurController {
 			  Model m,
 			  @RequestParam(name = "id",required = false) String id,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {	
+		      @RequestParam(name="size", defaultValue = "6") int size) {	
 		Enqueteur q = new Enqueteur();
 		q = enqueteurRep.getById(Integer.parseInt(id));
 		q.setEtat("active");
@@ -158,7 +158,7 @@ public class EnqueteurController {
 			  @RequestParam(name = "matricule",required = false) String matricule,
 			  @RequestParam(name = "motdepasse",required = false) String motdepasse,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 		
 		Enqueteur q = new Enqueteur();
 		q = enqueteurRep.getById(Integer.parseInt(id));

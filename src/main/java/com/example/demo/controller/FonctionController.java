@@ -26,11 +26,11 @@ public class FonctionController {
 	@Autowired
 	FonctionRep fonctionRep;
 	
-	 @GetMapping(path = "/Fonction")
+	 @GetMapping(path = "/fonction")
 	  public ModelAndView Fonction(HttpSession session,
 			  Model m,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 		 Pageable paging = PageRequest.of(page, size);
 		 
 		 Page<Fonction> pageTuts=  fonctionRep.listFonction(paging);
@@ -49,7 +49,7 @@ public class FonctionController {
 	  public ModelAndView listQuartier(HttpSession session,
 			  Model m,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 		 Pageable paging = PageRequest.of(page, size);		 
 		 Page<Fonction> pageTuts=  fonctionRep.listFonction(paging);
 		 int total = pageTuts.getTotalPages();
@@ -67,7 +67,7 @@ public class FonctionController {
 	  public ModelAndView Ajouter(Model m,HttpSession session,
 			  @RequestParam(name = "nom",required = false) String nom,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 
 			 Pageable paging = PageRequest.of(page, size);		 
 			 Page<Fonction> pageTuts=  fonctionRep.listFonction(paging);
@@ -106,7 +106,7 @@ public class FonctionController {
 			  Model m,
 			  @RequestParam(name = "id",required = false) String id,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {	
+		      @RequestParam(name="size", defaultValue = "6") int size) {	
 		Fonction q = new Fonction();
 		q = fonctionRep.getById(Integer.parseInt(id));
 		q.setEtat("desactive");
@@ -128,7 +128,7 @@ public class FonctionController {
 			  Model m,
 			  @RequestParam(name = "id",required = false) String id,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {	
+		      @RequestParam(name="size", defaultValue = "6") int size) {	
 		Fonction q = new Fonction();
 		q = fonctionRep.getById(Integer.parseInt(id));
 		q.setEtat("active");
@@ -153,7 +153,7 @@ public class FonctionController {
 			  @RequestParam(name = "nom",required = false) String nom,
 			 
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 		
 		Fonction q = new Fonction();
 		q = fonctionRep.getById(Integer.parseInt(id));

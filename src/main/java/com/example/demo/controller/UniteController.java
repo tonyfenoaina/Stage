@@ -30,7 +30,7 @@ public class UniteController {
 	  public ModelAndView Unite(HttpSession session,
 			  Model m,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 		 Pageable paging = PageRequest.of(page, size);
 		 
 		 Page<Unite> pageTuts=  uniteRep.listUnite(paging);

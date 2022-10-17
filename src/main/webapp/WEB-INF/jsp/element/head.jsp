@@ -1,5 +1,6 @@
+<%@ page pageEncoding="UTF-8" %>
 <head>
-    <meta charset="utf-8">
+  
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
   
     <title>Gestion d'Enquete-HABIBO-GROUP</title>
@@ -32,4 +33,5 @@
     * Author: BootstrapMade.com
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
+    <meta charset="utf8">
   </head>

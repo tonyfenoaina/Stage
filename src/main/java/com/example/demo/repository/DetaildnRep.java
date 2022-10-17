@@ -12,7 +12,7 @@ public interface DetaildnRep extends JpaRepository<Detaildn, Integer> {
 	@Query(value = "SELECT  * from detaildn", nativeQuery = true)
 	public Page<Detaildn> listDetaildn(Pageable paging);
 	
-	@Query(value = "SELECT  * from detaildn where nom like :input", nativeQuery = true)
+	@Query(value = "SELECT  * from detaildn where titre like :input", nativeQuery = true)
 	public ArrayList<Detaildn> listDetaildnRec(String input);
 
 }

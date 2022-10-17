@@ -2,22 +2,22 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList" %>
 <%@page import="com.example.demo.model.*" %>
+<%@ page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
+ 
   <jsp:include page="/WEB-INF/jsp/element/head.jsp" />
 <body>
   <!-- ======= Header ======= -->
   <jsp:include page="/WEB-INF/jsp/element/header.jsp" />
-  <main  id="main" class="main">
-  
-   
+  <main  id="main" class="main"> 
     <div style="margin-left: 100px;" class="pagetitle">
       <h1>Gestion de Fiche DN</h1> 
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item ">Gestion des Fiche DN</li> 
           <li class="breadcrumb-item ">Nouvelle Fiche de Dn</li> 
-          <li class="breadcrumb-item active">Choisir Categorie</li>
+          <li class="breadcrumb-item active">Choisir Catégorie</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -153,7 +153,7 @@
                       </li>
 
                       <li class="page-item active" aria-current="page">
-                        <a style="background-color: #025ea7;" class="page-link" href="/pageCategorie?page=<%=current-1%>"><%=current%></a>
+                        <a style="background-color: #025ea7;" class="page-link" href="/CategorieDn?page=<%=current-1%>"><%=current%></a>
                       </li>
                
                       <%
@@ -169,17 +169,17 @@
                       <%
                       }else if(total==2){
                     %>
-                    <li class="page-item"><a class="page-link" href="/pageCategorie?page=<%=current%>"><%=current+1%></a></li>
-                    <li class="page-item disabled"><a class="page-link" href="/pageCategorie?page=<%=current+1%>" aria-disabled="true"><%=current+2%></a></li>
+                    <li class="page-item"><a class="page-link" href="/CategorieDn?page=<%=current%>"><%=current+1%></a></li>
+                    <li class="page-item disabled"><a class="page-link" href="/CategorieDn?page=<%=current+1%>" aria-disabled="true"><%=current+2%></a></li>
                     <li class="page-item">
-                      <a class="page-link" href="/pageCategorie?page=<%=next%>">Suivant</a>
+                      <a class="page-link" href="/CategorieDn?page=<%=next%>">Suivant</a>
                     </li>
                     <%} else {%>
 
-                      <li class="page-item"><a class="page-link" href="/pageCategorie?page=<%=current%>"><%=current+1%></a></li>
-                      <li class="page-item"><a class="page-link" href="/pageCategorie?page=<%=current+1%>"><%=current+2%></a></li>
+                      <li class="page-item"><a class="page-link" href="/CategorieDn?page=<%=current%>"><%=current+1%></a></li>
+                      <li class="page-item"><a class="page-link" href="/CategorieDn?page=<%=current+1%>"><%=current+2%></a></li>
                       <li class="page-item">
-                        <a class="page-link" href="/pageCategorie?page=<%=next%>">Next</a>
+                        <a class="page-link" href="/CategorieDn?page=<%=next%>">Next</a>
                       </li>
 
                       <%}%>
@@ -196,17 +196,17 @@
                   <nav style="margin-left: 20px;margin-top: 30px;" aria-label="...">
                     <ul class="pagination">
                       <li class="page-item ">
-                        <a class="page-link" href="/pageCategorie?page=<%=previous%>" tabindex="-1" >Precedent</a>
+                        <a class="page-link" href="/CategorieDn?page=<%=previous%>" tabindex="-1" >Precedent</a>
                       </li>
                     
                      
-                      <li class="page-item"><a class="page-link" href="/pageCategorie?page=<%=current-2%>"><%=current-1%></a></li>
+                      <li class="page-item"><a class="page-link" href="/CategorieDn?page=<%=current-2%>"><%=current-1%></a></li>
   
                       <li class="page-item active" aria-current="page">
-                        <a style="background-color: #025ea7;" class="page-link" href="/pageCategorie?page=<%=current-1%>"><%=current%></a>
+                        <a style="background-color: #025ea7;" class="page-link" href="/CategorieDn?page=<%=current-1%>"><%=current%></a>
                       </li>
 
-                      <li class="page-item disabled"><a class="page-link" href="/pageCategorie?page=<%=current%>" aria-disabled="true"><%=current+1%></a></li>
+                      <li class="page-item disabled"><a class="page-link" href="/CategorieDn?page=<%=current%>" aria-disabled="true"><%=current+1%></a></li>
   
                       <li class="page-item disabled">
                         <a class="page-link" href="#" aria-disabled="true">Suivant</a>
@@ -220,14 +220,14 @@
                 <nav style="margin-left: 20px;margin-top: 30px;" aria-label="...">
                   <ul class="pagination">
                     <li class="page-item ">
-                      <a class="page-link" href="/pageCategorie?page=<%=previous%>" tabindex="-1" >Precedent</a>
+                      <a class="page-link" href="/CategorieDn?page=<%=previous%>" tabindex="-1" >Precedent</a>
                     </li>
-                    <li class="page-item"><a class="page-link" href="/pageCategorie?page=<%=current-3%>"><%=current-2%></a></li>
+                    <li class="page-item"><a class="page-link" href="/CategorieDn?page=<%=current-3%>"><%=current-2%></a></li>
                    
-                    <li class="page-item"><a class="page-link" href="/pageCategorie?page=<%=current-2%>"><%=current-1%></a></li>
+                    <li class="page-item"><a class="page-link" href="/CategorieDn?page=<%=current-2%>"><%=current-1%></a></li>
 
                     <li class="page-item active" aria-current="page">
-                      <a style="background-color: #025ea7;" class="page-link" href="/pageCategorie?page=<%=current-1%>"><%=current%></a>
+                      <a style="background-color: #025ea7;" class="page-link" href="/CategorieDn?page=<%=current-1%>"><%=current%></a>
                     </li>
 
                     <li class="page-item disabled">
@@ -241,30 +241,30 @@
                 <nav style="margin-left: 20px;margin-top: 30px;" aria-label="...">
                   <ul class="pagination">
                     <li class="page-item ">
-                      <a class="page-link" href="/pageCategorie?page=<%=previous%>" tabindex="-1">Precedent</a>
+                      <a class="page-link" href="/CategorieDn?page=<%=previous%>" tabindex="-1">Precedent</a>
                     </li>
                       <%  if(current==2 && total==2){
                       %>
 
-                    <li class="page-item"><a class="page-link" href="/pageCategorie?page=<%=current-2%>"><%=current-1%></a></li>
+                    <li class="page-item"><a class="page-link" href="/CategorieDn?page=<%=current-2%>"><%=current-1%></a></li>
                     <li class="page-item active" aria-current="page">
-                      <a style="background-color: #025ea7;" class="page-link" href="/pageCategorie?page=<%=current-1%>"><%=current%></a>
+                      <a style="background-color: #025ea7;" class="page-link" href="/CategorieDn?page=<%=current-1%>"><%=current%></a>
                     </li>
-                    <li class="page-item disabled"><a class="page-link" href="/pageCategorie?page=<%=current%>" aria-disabled="true"><%=current+1%></a></li>
+                    <li class="page-item disabled"><a class="page-link" href="/CategorieDn?page=<%=current%>" aria-disabled="true"><%=current+1%></a></li>
                     <li class="page-item disabled">
-                      <a class="page-link" href="/pageCategorie?page=<%=next%>" aria-disabled="true">Suivant</a>
+                      <a class="page-link" href="/CategorieDn?page=<%=next%>" aria-disabled="true">Suivant</a>
                     </li>
                     <%
                       }else{
                     %>
 
-                    <li class="page-item"><a class="page-link" href="/pageCategorie?page=<%=current-2%>"><%=current-1%></a></li>
+                    <li class="page-item"><a class="page-link" href="/CategorieDn?page=<%=current-2%>"><%=current-1%></a></li>
                     <li class="page-item active" aria-current="page">
-                      <a style="background-color: #025ea7;" class="page-link" href="/pageCategorie?page=<%=current-1%>"><%=current%></a>
+                      <a style="background-color: #025ea7;" class="page-link" href="/CategorieDn?page=<%=current-1%>"><%=current%></a>
                     </li>
-                    <li class="page-item"><a class="page-link" href="/pageCategorie?page=<%=current%>"><%=current+1%></a></li>
+                    <li class="page-item"><a class="page-link" href="/CategorieDn?page=<%=current%>"><%=current+1%></a></li>
                     <li class="page-item">
-                      <a class="page-link" href="/pageCategorie?page=<%=next%>" >Suivant</a>
+                      <a class="page-link" href="/CategorieDn?page=<%=next%>" >Suivant</a>
                     </li>
 
                     <%}%>

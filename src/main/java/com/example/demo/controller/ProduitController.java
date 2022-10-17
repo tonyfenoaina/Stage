@@ -53,7 +53,7 @@ public class ProduitController {
 			  @RequestParam(name = "nom",required = false) String nomMarque,
 			  @RequestParam(name="id",required = false) int idMarque,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 		 Pageable paging = PageRequest.of(page, size);
 		 session.setAttribute("idMarque", idMarque);
 		 session.setAttribute("nomMarque", nomMarque);
@@ -72,11 +72,10 @@ public class ProduitController {
 		}
 	
 	@PostMapping(path = "/RechercheProduit")
-	  public ModelAndView RechercheMarque(Model m ,HttpSession session,
-			  
+	  public ModelAndView RechercheMarque(Model m ,HttpSession session,			  
 			  @RequestParam(name = "nom",required = false) String nom,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {	
+		      @RequestParam(name="size", defaultValue = "6") int size) {	
 		int idMarque = (int)session.getAttribute("idMarque");
 		 Pageable paging = PageRequest.of(page, size);		 
 		m.addAttribute("total",1);  
@@ -95,7 +94,7 @@ public class ProduitController {
 	  public ModelAndView listProduit(HttpSession session,
 			  Model m,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 		int idMarque = (int)session.getAttribute("idMarque");
 		 Pageable paging = PageRequest.of(page, size);		 
 		 Page<Detailproduit> pageTuts=  detailproduitRep.listProduit(paging,idMarque);
@@ -116,7 +115,7 @@ public class ProduitController {
 			  @RequestParam(name = "description",required = false) String description,
 		
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 			int idMarque = (int)session.getAttribute("idMarque");
 			produitRep.save(new Produit(nom,"active",description,idMarque));
 			
@@ -136,7 +135,7 @@ public class ProduitController {
 	  public ModelAndView DesactiveProduit(HttpSession session,  Model m,
 			  @RequestParam(name = "id",required = false) String id,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {	
+		      @RequestParam(name="size", defaultValue = "6") int size) {	
 		Produit q = new Produit();
 		int idMarque = (int)session.getAttribute("idMarque");
 		q = produitRep.getById(Integer.parseInt(id));
@@ -158,7 +157,7 @@ public class ProduitController {
 	  public ModelAndView ActiveProduit(HttpSession session,  Model m,
 			  @RequestParam(name = "id",required = false) String id,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {	
+		      @RequestParam(name="size", defaultValue = "6") int size) {	
 		Produit q = new Produit();
 		int idMarque = (int)session.getAttribute("idMarque");
 		q = produitRep.getById(Integer.parseInt(id));
@@ -182,7 +181,7 @@ public class ProduitController {
 			  @RequestParam(name = "nom",required = false) String nom,
 			  @RequestParam(name = "description",required = false) String description,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
-		      @RequestParam(name="size", defaultValue = "10") int size) {
+		      @RequestParam(name="size", defaultValue = "6") int size) {
 		
 		Produit q = new Produit();
 		int idMarque = (int)session.getAttribute("idMarque");
