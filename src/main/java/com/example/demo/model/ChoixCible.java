@@ -18,7 +18,7 @@ public class ChoixCible {
 	String nom;
 	
 	@Column(name = "idcible")
-	String idcible;
+	int idcible;
 
 	@Column(name = "etat")
 	String etat;
@@ -29,14 +29,14 @@ public class ChoixCible {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ChoixCible(String nom, String idcible) {
+	public ChoixCible(String nom, int idcible) {
 		super();
 		this.nom = nom;
 		this.idcible = idcible;
 	}
 
 	
-	public ChoixCible(String nom, String idcible, String etat) {
+	public ChoixCible(String nom, int idcible, String etat) {
 		super();
 		this.nom = nom;
 		this.idcible = idcible;
@@ -67,21 +67,12 @@ public class ChoixCible {
 		this.nom = nom;
 	}
 
-	public String getIdcible() {
+	public int getIdcible() {
 		return idcible;
 	}
 
-	public void setIdcible(String idcible) {
+	public void setIdcible(int idcible) {
 		this.idcible = idcible;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }

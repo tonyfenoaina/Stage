@@ -20,10 +20,31 @@ public class Detailproduitdn {
 	@Column(name = "produit")
 	String produit;
 	
-	
 	@Column(name = "iddn")
 	int iddn;
+
+	@Column(name = "idproduit")
+	int idproduit;
+
+	@Column(name = "idmarque")
+	int idmarque;
 	
+	public int getIdproduit() {
+		return idproduit;
+	}
+
+	public void setIdproduit(int idproduit) {
+		this.idproduit = idproduit;
+	}
+
+	public int getIdmarque() {
+		return idmarque;
+	}
+
+	public void setIdmarque(int idmarque) {
+		this.idmarque = idmarque;
+	}
+
 	public int getIddn() {
 		return iddn;
 	}

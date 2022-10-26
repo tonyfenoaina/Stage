@@ -40,7 +40,7 @@ public class CibleController {
 		m.addAttribute("current",page+1); 
 		session.setAttribute("listCible", listCible);
 		
-			return new ModelAndView("crud/Cible");
+			return new ModelAndView("crud/degustation/Cible");
 			
 		}
 	

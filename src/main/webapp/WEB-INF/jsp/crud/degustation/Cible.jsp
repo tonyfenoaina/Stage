@@ -150,17 +150,13 @@
                         <th scope="col">ID</th>
                         <th scope="col">NOM</th>
                         <th scope="col">Modifier</th>
-                        <th scope="col">Choix</th>
                         <th scope="col">Etat</th>
-                        
+                        <th scope="col">Choix</th>               
                       </tr>
                     </thead>
                     <tbody>
                   		<%  for(Cible s : listCible){ %>
-                        
-                        
-                        
-                        <tr>
+                   <tr>
                           <th><%= s.getId() %></th>
                            <th><%= s.getNom() %></th>                     
                           <td> <button data-bs-toggle="modal" data-bs-target="#haha<%=s.getId()%>" style="background-color: #025ea7;" type="button" class="btn btn-primary"><i class="ri-edit-2-fill"></i></button></td>
@@ -215,14 +211,12 @@
                           </div>
                         </div>
                       </div>
-                        </tr>
+                       
                         
                         <%
                         	}
                       		else {               
-                        %>
-                        
-                    
+                        %>             
                         <td> <button data-bs-toggle="modal" data-bs-target="#act<%=s.getId() %>" style="background-color: #025ea7;" type="button" class="btn btn-primary"><i class="bi bi-toggle-off"></i> </button></td> 
                              
                     <div class="modal fade" id="act<%=s.getId() %>" tabindex="-1">
@@ -248,7 +242,12 @@
                       </div>
                     </div>
                       
-                      <% }} %>
+                      <% }%>
+                      <td> <a href="/choixcible?idcible=<%=s.getId()%>"><button style="background-color: #025ea7;" type="button" class="btn btn-primary"><i class="bi bi-toggle-off"></i> </button></a></td> 
+
+                    </tr>
+
+                    <%} %>
          
                     </tbody>
                   </table>

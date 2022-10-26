@@ -18,4 +18,7 @@ public interface DetailmarqueRep extends JpaRepository<Detailmarque, Integer> {
 	@Query(value = "SELECT  * from detailmarque where nom like :input and idcategorie = :idcateg", nativeQuery = true)
 	public ArrayList<Detailmarque> listMarqueRec(String input,int idcateg);
 
+	@Query(value = "SELECT  * from detailmarque where nom like :input", nativeQuery = true)
+	public ArrayList<Detailmarque> rechercheEvolution(String input);
+
 }

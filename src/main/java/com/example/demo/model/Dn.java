@@ -93,13 +93,4 @@ public class Dn {
 	public void setIdunite(int unite) {
 		this.idunite = unite;
 	}
-
-	
-	
-	
-	
-	
-	
-	
-
 }

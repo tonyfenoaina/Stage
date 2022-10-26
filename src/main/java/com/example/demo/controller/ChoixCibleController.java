@@ -33,11 +33,13 @@ public class ChoixCibleController {
 	@GetMapping(path = "/choixcible")
 	public ModelAndView ChoixCible(HttpSession session,
 			  Model m,
+			  @RequestParam(name = "idcible") int idc,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
 		      @RequestParam(name="size", defaultValue = "6") int size) {
 		 Pageable paging = PageRequest.of(page, size);
-		 
-		 Page<ChoixCible> pageTuts=  choixCibleRep.listChoixCible(paging);
+		 session.setAttribute("idcible", idc);
+		 int idcible = (int) session.getAttribute("idcible");
+		 Page<ChoixCible> pageTuts=  choixCibleRep.listChoixCible(paging,idcible);
 		 int total = pageTuts.getTotalPages();
 		 List<ChoixCible> listChoixCible = new ArrayList<ChoixCible>();
 		 listChoixCible =  pageTuts.getContent();
@@ -46,7 +48,7 @@ public class ChoixCibleController {
 		session.setAttribute("listChoixCible", listChoixCible);
 		session.setAttribute("listValeur", valeurChoixRep.findAll());
 		
-			return new ModelAndView("crud/ChoixCible");	
+			return new ModelAndView("crud/degustation/ChoixCible");	
 			
 		}
 
@@ -56,7 +58,9 @@ public class ChoixCibleController {
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
 		      @RequestParam(name="size", defaultValue = "6") int size) {
 		 Pageable paging = PageRequest.of(page, size);		 
-		 Page<ChoixCible> pageTuts=  choixCibleRep.listChoixCible(paging);
+		 int idcible = (int) session.getAttribute("idcible");
+		 Page<ChoixCible> pageTuts=  choixCibleRep.listChoixCible(paging,idcible);
+		 
 		 int total = pageTuts.getTotalPages();
 		 List<ChoixCible> listChoixCible = new ArrayList<ChoixCible>();
 		 listChoixCible =  pageTuts.getContent();
@@ -64,8 +68,7 @@ public class ChoixCibleController {
 		m.addAttribute("current",page+1); 
 		session.setAttribute("listChoixCible", listChoixCible);
 		
-			return new ModelAndView("crud/degustation/ChoixCible");
-			
+			return new ModelAndView("crud/degustation/ChoixCible");		
 		}
 
 	@PostMapping(path = "/AjouterChoixCible")
@@ -73,10 +76,12 @@ public class ChoixCibleController {
 			  @RequestParam(name = "nom",required = false) String nom,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
 		      @RequestParam(name="size", defaultValue = "6") int size) {
-		
-			choixCibleRep.save(new ChoixCible(nom,"active"));
+
+			int idcible = (int) session.getAttribute("idcible");
+			choixCibleRep.save(new ChoixCible(nom,idcible,"active"));
 			 Pageable paging = PageRequest.of(page, size);		 
-			 Page<ChoixCible> pageTuts=  choixCibleRep.listChoixCible(paging);
+			
+		 Page<ChoixCible> pageTuts=  choixCibleRep.listChoixCible(paging,idcible);
 			 int total = pageTuts.getTotalPages();
 			 List<ChoixCible> listChoixCible = new ArrayList<ChoixCible>();
 			 listChoixCible =  pageTuts.getContent();
@@ -94,15 +99,15 @@ public class ChoixCibleController {
 		      @RequestParam(name="size", defaultValue = "2") int size) {	
 			
 		 Pageable paging = PageRequest.of(page, size);		 
-		 Page<ChoixCible> pageTuts=  choixCibleRep.listChoixCible(paging);
-		 int total = pageTuts.getTotalPages();
+		 int idcible = (int) session.getAttribute("idcible");
+		 Page<ChoixCible> pageTuts=  choixCibleRep.listChoixCible(paging,idcible);		 int total = pageTuts.getTotalPages();
 		 List<ChoixCible> listChoixCible = new ArrayList<ChoixCible>();
 		 listChoixCible =  pageTuts.getContent();
 		m.addAttribute("total",1);  
 		m.addAttribute("current",page+1); 
 			String noms = nom;
 			nom = "%"+nom+"%";
-			session.setAttribute("listChoixCible", choixCibleRep.listChoixCibleRec(nom));
+			session.setAttribute("listChoixCible", choixCibleRep.listChoixCibleRec(idcible,nom));
 			m.addAttribute("retour", noms);
 			return new ModelAndView("crud/degustation/ChoixCible");			
 		}
@@ -118,7 +123,8 @@ public class ChoixCibleController {
 		q.setEtat("desactive");
 		choixCibleRep.save(q);
 		Pageable paging = PageRequest.of(page, size);		 
-		 Page<ChoixCible> pageTuts=  choixCibleRep.listChoixCible(paging);
+		 int idcible = (int) session.getAttribute("idcible");
+		 Page<ChoixCible> pageTuts=  choixCibleRep.listChoixCible(paging,idcible);
 		 int total = pageTuts.getTotalPages();
 		 List<ChoixCible> listChoixCible = new ArrayList<ChoixCible>();
 		 listChoixCible =  pageTuts.getContent();
@@ -140,7 +146,8 @@ public class ChoixCibleController {
 		q.setEtat("active");
 		choixCibleRep.save(q);
 		Pageable paging = PageRequest.of(page, size);		 
-		 Page<ChoixCible> pageTuts=  choixCibleRep.listChoixCible(paging);
+		 int idcible = (int) session.getAttribute("idcible");
+		 Page<ChoixCible> pageTuts=  choixCibleRep.listChoixCible(paging,idcible);
 		 int total = pageTuts.getTotalPages();
 		 List<ChoixCible> listChoixCible = new ArrayList<ChoixCible>();
 		 listChoixCible =  pageTuts.getContent();
@@ -168,7 +175,8 @@ public class ChoixCibleController {
 		choixCibleRep.save(q);		
 		
 		Pageable paging = PageRequest.of(page, size);		 
-		 Page<ChoixCible> pageTuts=  choixCibleRep.listChoixCible(paging);
+		 int idcible = (int) session.getAttribute("idcible");
+		 Page<ChoixCible> pageTuts=  choixCibleRep.listChoixCible(paging,idcible);
 		 int total = pageTuts.getTotalPages();
 		 List<ChoixCible> listChoixCible = new ArrayList<ChoixCible>();
 		 listChoixCible =  pageTuts.getContent();

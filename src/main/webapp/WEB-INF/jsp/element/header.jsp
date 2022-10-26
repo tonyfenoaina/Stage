@@ -219,9 +219,32 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="/Dn">
           <i class="bi bi-grid"></i>
-          <span>Enquete</span>
+          <span>DN </span>
         </a>
       </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-people-fill"></i><span>Degustation</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/utilisateur">
+              <i class="bi bi-circle"></i><span>Responsable</span>
+            </a>
+          </li>
+          <li>
+            <a href="/enqueteur">
+              <i class="bi bi-circle"></i><span>Enqueteur</span>
+            </a>
+          </li>
+          <li>
+            <a href="/fonction">
+              <i class="bi bi-circle"></i><span>Fonction</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Components Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
@@ -244,7 +267,7 @@
             </a>
           </li>
         </ul>
-      </li><!-- End Components Nav -->
+      </li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">

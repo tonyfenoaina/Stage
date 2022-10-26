@@ -71,7 +71,7 @@ public class EnqueteurController {
 			  @RequestParam(name = "motdepasse",required = false) String motdepasse,
 			  @RequestParam(name="page" ,defaultValue = "0") int page,
 		      @RequestParam(name="size", defaultValue = "6") int size) {
-
+				enqueteurRep.save(new Enqueteur(nom,prenom,matricule,motdepasse,"active"));
 			 Pageable paging = PageRequest.of(page, size);		 
 			 Page<Enqueteur> pageTuts=  enqueteurRep.listEnqueteur(paging);
 			 int total = pageTuts.getTotalPages();
@@ -79,7 +79,7 @@ public class EnqueteurController {
 			 listEnqueteur =  pageTuts.getContent();
 			m.addAttribute("total",total);  
 			m.addAttribute("current",page+1); 
-			enqueteurRep.save(new Enqueteur(nom,prenom,matricule,motdepasse,"active"));
+			
 			session.setAttribute("listEnqueteur", listEnqueteur);			
 			return new ModelAndView("crud/Enqueteur");			
 		}

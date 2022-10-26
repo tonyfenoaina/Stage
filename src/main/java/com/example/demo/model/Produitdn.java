@@ -72,10 +72,4 @@ public class Produitdn {
 	public void setIddn(int iddn) {
 		this.iddn = iddn;
 	}
-	
-	
-	
-	
-	
-
 }

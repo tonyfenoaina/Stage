@@ -47,8 +47,6 @@ public class DnController {
 	@Autowired
 	DetailmarqueRep detailmarqueRep;
 	
-	
-	
 	 @GetMapping(path = "/Dn")
 	  public ModelAndView Dn(HttpSession session,
 			  Model m,
@@ -63,8 +61,7 @@ public class DnController {
 		m.addAttribute("total",total);  
 		m.addAttribute("current",page+1); 
 		session.setAttribute("listUniteinput",uniteRep.findAll());
-		session.setAttribute("listDn", listDn);
-		
+		session.setAttribute("listDn", listDn);		
 			return new ModelAndView("crud/dn/Dn");
 			
 		}
@@ -96,10 +93,7 @@ public class DnController {
 		m.addAttribute("current",page+1); 		
 		session.setAttribute("listCategorie", list);	
 		return new ModelAndView("crud/dn/categorie");			
-		}
-	 
-	 
-	 
+		} 
 	 @PostMapping(path = "/RechercheCategorieDn")
 	 public ModelAndView RechercheCategorieDn(Model m ,HttpSession session,
 	 		  @RequestParam(name = "nom",required = false) String nom,
@@ -133,10 +127,7 @@ public class DnController {
 	 	session.setAttribute("listCategorie", list);	 	
 	 		return new ModelAndView("crud/categorie");
 	 		
-	 	}
-	 
-	 
-	
+	 	}	
 	@GetMapping(path = "/pageDn")
 	  public ModelAndView listQuartier(HttpSession session,
 			  Model m,

@@ -93,9 +93,17 @@
                             <div class="modal-body">
                               <label for="">Nom</label>
                               <input style="margin-top: 20px;" class="form-control" type="text" name="nom" placeholder="Nom ...">
-                             
+                              <label for="">Valeur</label>
+                              <select class="form-control" name="" id="">
+                                <%
+                                List<ValeurChoix> list = new ArrayList<ValeurChoix>();					
+                                  list = (List<ValeurChoix>)session.getAttribute("listValeur");                                    
+                                %>
+                                <%  for(ValeurChoix cs : list){ %>
+                                  <option value="<%=cs.getId()%>"><%=cs.getNom()%></option>
+                                <%}%>
+                              </select>                            
                             </div>
-
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
                               <input style="background-color: #025ea7;" type="submit" class="btn btn-primary" value="Enregistrer">

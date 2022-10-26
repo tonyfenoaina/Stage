@@ -11,12 +11,11 @@ import com.example.demo.model.ChoixCible;
 import com.example.demo.model.ValeurChoix;
 
 public interface ChoixCibleRep extends JpaRepository<ChoixCible , Integer>{
-	
 
-	@Query(value = "SELECT  * from choixcible", nativeQuery = true)
-	public Page<ChoixCible> listChoixCible(Pageable paging);
+	@Query(value = "SELECT  * from choixcible where idcible = :input ", nativeQuery = true)
+	public Page<ChoixCible> listChoixCible(Pageable paging,int input);
 	
-	@Query(value = "SELECT  * from choixcible where nom like :input", nativeQuery = true)
-	public ArrayList<ChoixCible> listChoixCibleRec(String input);
+	@Query(value = "SELECT  * from choixcible where nom like :nom and idcible = :input", nativeQuery = true)
+	public ArrayList<ChoixCible> listChoixCibleRec(int input,String nom);
 
 }

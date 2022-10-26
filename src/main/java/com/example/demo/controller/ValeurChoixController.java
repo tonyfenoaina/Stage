@@ -40,7 +40,7 @@ public ModelAndView ValeurChoix(HttpSession session,
 	m.addAttribute("current",page+1); 
 	session.setAttribute("listValeurChoix", listValeurChoix);
 	
-		return new ModelAndView("crud/ValeurChoix");
+		return new ModelAndView("crud/degustation/ValeurChoix");
 		
 	}
 
