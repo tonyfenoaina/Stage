@@ -24,6 +24,9 @@ public class Detailresultatdn {
 	@Column(name = "idproduit")
 	int idproduit;
 
+	@Column(name = "idcategorie")
+	int idcategorie;
+
 	@Column(name = "prix")
 	double prix;
 
@@ -119,6 +122,16 @@ public class Detailresultatdn {
 		this.produit = produit;
 	}
 
+	
+
 	public Detailresultatdn() {
+	}
+
+	public int getIdcategorie() {
+		return idcategorie;
+	}
+
+	public void setIdcategorie(int idcategorie) {
+		this.idcategorie = idcategorie;
 	}
 }

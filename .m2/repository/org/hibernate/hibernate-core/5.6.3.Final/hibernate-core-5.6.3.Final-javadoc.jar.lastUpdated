@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Jan 17 07:33:26 CET 2022
+@default-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1642401206622
+https\://repo.maven.apache.org/maven2/.error=Could not transfer artifact org.hibernate\:hibernate-core\:jar\:javadoc\:5.6.3.Final from/to central (https\://repo.maven.apache.org/maven2)\: repo.maven.apache.org

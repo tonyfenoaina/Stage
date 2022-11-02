@@ -48,18 +48,7 @@
             <div class="col-9">
               <div class="card top-selling overflow-auto">
 
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
+               
 
                 <div class="card-body pb-0">
                   
@@ -74,7 +63,7 @@
 
                   </nav>
 
-                  <h5 class="card-title">Listes des DN</h5>
+                  <h5 class="card-title">Listes des Degustation</h5>
                   <div style="margin-top: 20px;" class="row">
                     
                   
@@ -150,7 +139,7 @@
                             <div style="background-color: #025ea7;" class="modal-header">
                               <h5 class="modal-title" style="color: white;">Modification du fiche de Degustation Numero<%=s.getId() %></h5>
                             </div>
-                            <form action="/UpdateDn" method="post">
+                            <form action="/UpdateDegustation" method="post">
                               <div class="modal-body">
                                 <label for="">Titre</label>
                                 <input style="margin-top: 20px;" class="form-control" type="text" name="titre" value="<%= s.getTitre() %>">
@@ -170,7 +159,7 @@
                         </div>
                            </div>
 
-                           <th><a href="produitDegustation?iddegustation=<%= s.getId()%>&idcategorie=<%=s.getIdcategorie()%>"><button style="background-color: #025ea7;" type="button" class="btn btn-primary">  <i class="bx bx-basket"></i></button></a></th>
+                           <th><a href="produitDegustation?iddegustation=<%= s.getId()%>&idcategorie=<%=s.getIdcategorie()%>"><button style="background-color: #025ea7;" type="button" class="btn btn-primary">  <i class="ri-product-hunt-line"></i></button></a></th>
                         </tr>
                      
                       <% } %>
@@ -195,7 +184,7 @@
                       </li>
 
                       <li class="page-item active" aria-current="page">
-                        <a style="background-color: #025ea7;" class="page-link" href="/pageville?page=<%=current-1%>"><%=current%></a>
+                        <a style="background-color: #025ea7;" class="page-link" href="/degustation?page=<%=current-1%>"><%=current%></a>
                       </li>
                
                       <%
@@ -211,17 +200,17 @@
                       <%
                       }else if(total==2){
                     %>
-                    <li class="page-item"><a class="page-link" href="/pageville?page=<%=current%>"><%=current+1%></a></li>
-                    <li class="page-item disabled"><a class="page-link" href="/pageville?page=<%=current+1%>" aria-disabled="true"><%=current+2%></a></li>
+                    <li class="page-item"><a class="page-link" href="/degustation?page=<%=current%>"><%=current+1%></a></li>
+                    <li class="page-item disabled"><a class="page-link" href="/degustation?page=<%=current+1%>" aria-disabled="true"><%=current+2%></a></li>
                     <li class="page-item">
-                      <a class="page-link" href="/pageville?page=<%=next%>">Suivant</a>
+                      <a class="page-link" href="/degustation?page=<%=next%>">Suivant</a>
                     </li>
                     <%} else {%>
 
-                      <li class="page-item"><a class="page-link" href="/pageville?page=<%=current%>"><%=current+1%></a></li>
-                      <li class="page-item"><a class="page-link" href="/pageville?page=<%=current+1%>"><%=current+2%></a></li>
+                      <li class="page-item"><a class="page-link" href="/degustation?page=<%=current%>"><%=current+1%></a></li>
+                      <li class="page-item"><a class="page-link" href="/degustation?page=<%=current+1%>"><%=current+2%></a></li>
                       <li class="page-item">
-                        <a class="page-link" href="/pageville?page=<%=next%>">Next</a>
+                        <a class="page-link" href="/degustation?page=<%=next%>">Next</a>
                       </li>
 
                       <%}%>
@@ -238,17 +227,17 @@
                   <nav style="margin-left: 20px;margin-top: 30px;" aria-label="...">
                     <ul class="pagination">
                       <li class="page-item ">
-                        <a class="page-link" href="/pageville?page=<%=previous%>" tabindex="-1" >Precedent</a>
+                        <a class="page-link" href="/degustation?page=<%=previous%>" tabindex="-1" >Precedent</a>
                       </li>
                     
                      
-                      <li class="page-item"><a class="page-link" href="/pageville?page=<%=current-2%>"><%=current-1%></a></li>
+                      <li class="page-item"><a class="page-link" href="/degustation?page=<%=current-2%>"><%=current-1%></a></li>
   
                       <li class="page-item active" aria-current="page">
-                        <a style="background-color: #025ea7;" class="page-link" href="/pageville?page=<%=current-1%>"><%=current%></a>
+                        <a style="background-color: #025ea7;" class="page-link" href="/degustation?page=<%=current-1%>"><%=current%></a>
                       </li>
 
-                      <li class="page-item disabled"><a class="page-link" href="/pageville?page=<%=current%>" aria-disabled="true"><%=current+1%></a></li>
+                      <li class="page-item disabled"><a class="page-link" href="/degustation?page=<%=current%>" aria-disabled="true"><%=current+1%></a></li>
   
                       <li class="page-item disabled">
                         <a class="page-link" href="#" aria-disabled="true">Suivant</a>
@@ -262,14 +251,14 @@
                 <nav style="margin-left: 20px;margin-top: 30px;" aria-label="...">
                   <ul class="pagination">
                     <li class="page-item ">
-                      <a class="page-link" href="/pageville?page=<%=previous%>" tabindex="-1" >Precedent</a>
+                      <a class="page-link" href="/degustation?page=<%=previous%>" tabindex="-1" >Precedent</a>
                     </li>
-                    <li class="page-item"><a class="page-link" href="/pageville?page=<%=current-3%>"><%=current-2%></a></li>
+                    <li class="page-item"><a class="page-link" href="/degustation?page=<%=current-3%>"><%=current-2%></a></li>
                    
-                    <li class="page-item"><a class="page-link" href="/pageville?page=<%=current-2%>"><%=current-1%></a></li>
+                    <li class="page-item"><a class="page-link" href="/degustation?page=<%=current-2%>"><%=current-1%></a></li>
 
                     <li class="page-item active" aria-current="page">
-                      <a style="background-color: #025ea7;" class="page-link" href="/pageville?page=<%=current-1%>"><%=current%></a>
+                      <a style="background-color: #025ea7;" class="page-link" href="/degustation?page=<%=current-1%>"><%=current%></a>
                     </li>
 
                     <li class="page-item disabled">
@@ -283,30 +272,30 @@
                 <nav style="margin-left: 20px;margin-top: 30px;" aria-label="...">
                   <ul class="pagination">
                     <li class="page-item ">
-                      <a class="page-link" href="/pageville?page=<%=previous%>" tabindex="-1">Precedent</a>
+                      <a class="page-link" href="/degustation?page=<%=previous%>" tabindex="-1">Precedent</a>
                     </li>
                       <%  if(current==2 && total==2){
                       %>
 
-                    <li class="page-item"><a class="page-link" href="/pageville?page=<%=current-2%>"><%=current-1%></a></li>
+                    <li class="page-item"><a class="page-link" href="/degustation?page=<%=current-2%>"><%=current-1%></a></li>
                     <li class="page-item active" aria-current="page">
-                      <a style="background-color: #025ea7;" class="page-link" href="/pageville?page=<%=current-1%>"><%=current%></a>
+                      <a style="background-color: #025ea7;" class="page-link" href="/degustation?page=<%=current-1%>"><%=current%></a>
                     </li>
-                    <li class="page-item disabled"><a class="page-link" href="/pageville?page=<%=current%>" aria-disabled="true"><%=current+1%></a></li>
+                    <li class="page-item disabled"><a class="page-link" href="/degustation?page=<%=current%>" aria-disabled="true"><%=current+1%></a></li>
                     <li class="page-item disabled">
-                      <a class="page-link" href="/pageville?page=<%=next%>" aria-disabled="true">Suivant</a>
+                      <a class="page-link" href="/degustation?page=<%=next%>" aria-disabled="true">Suivant</a>
                     </li>
                     <%
                       }else{
                     %>
 
-                    <li class="page-item"><a class="page-link" href="/pageville?page=<%=current-2%>"><%=current-1%></a></li>
+                    <li class="page-item"><a class="page-link" href="/degustation?page=<%=current-2%>"><%=current-1%></a></li>
                     <li class="page-item active" aria-current="page">
-                      <a style="background-color: #025ea7;" class="page-link" href="/pageville?page=<%=current-1%>"><%=current%></a>
+                      <a style="background-color: #025ea7;" class="page-link" href="/degustation?page=<%=current-1%>"><%=current%></a>
                     </li>
-                    <li class="page-item"><a class="page-link" href="/pageville?page=<%=current%>"><%=current+1%></a></li>
+                    <li class="page-item"><a class="page-link" href="/degustation?page=<%=current%>"><%=current+1%></a></li>
                     <li class="page-item">
-                      <a class="page-link" href="/pageville?page=<%=next%>" >Suivant</a>
+                      <a class="page-link" href="/degustation?page=<%=next%>" >Suivant</a>
                     </li>
 
                     <%}%>

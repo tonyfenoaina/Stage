@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat May 14 10:57:15 AST 2022
+@default-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1652515035409
+https\://repo.maven.apache.org/maven2/.error=Could not transfer artifact org.springframework\:spring-context-support\:jar\:sources\:5.3.14 from/to central (https\://repo.maven.apache.org/maven2)\: repo.maven.apache.org

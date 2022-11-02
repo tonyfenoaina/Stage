@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Jan 18 00:55:04 EAT 2022
+spring-boot-starter-data-mongodb-reactive-2.6.2.jar>central=
+spring-boot-starter-data-mongodb-reactive-2.6.2-sources.jar>central=
+spring-boot-starter-data-mongodb-reactive-2.6.2.pom>central=

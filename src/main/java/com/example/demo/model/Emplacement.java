@@ -1,27 +1,26 @@
 package com.example.demo.model;
 import javax.persistence.*;
-
 @Entity
 @Table(name = "emplacement")
 public class Emplacement  {
     @Id
     @Column(name = "id")
-    private String id;
+    private int id;
     
     @Column(name = "idresultatdn")
     private String idresultatdn;
 
     @Column(name = "longitude")
-    private double longitude;
+    private String longitude;
 
     @Column(name = "latitude")
-    private double latitude;
+    private String latitude;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -33,23 +32,23 @@ public class Emplacement  {
         this.idresultatdn = idresultatdn;
     }
 
-    public double getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(double longitude) {
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
 
-    public double getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(double latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    public Emplacement(String id, String idresultatdn, double longitude, double latitude) {
+    public Emplacement(int id, String idresultatdn, String longitude, String latitude) {
         this.id = id;
         this.idresultatdn = idresultatdn;
         this.longitude = longitude;

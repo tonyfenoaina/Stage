@@ -17,5 +17,8 @@ public interface DetailProduitRep extends JpaRepository<Detailproduit, Integer> 
 	
 	@Query(value = "SELECT  * from detailproduit where nom like :input and idmarque = :idm", nativeQuery = true)
 	public ArrayList<Detailproduit> listProduitRec(String input,int idm);
+	
+	@Query(value = "SELECT  * from detailproduit where nom like :input or marque like :input", nativeQuery = true)
+    public ArrayList<Detailproduit> listProduitRecfiche(String input);
 
 }

@@ -40,8 +40,7 @@ public ModelAndView ValeurChoix(HttpSession session,
 	m.addAttribute("current",page+1); 
 	session.setAttribute("listValeurChoix", listValeurChoix);
 	
-		return new ModelAndView("crud/degustation/ValeurChoix");
-		
+		return new ModelAndView("crud/degustation/ValeurChoix");		
 	}
 
 @GetMapping(path = "/pageValeurChoix")
@@ -54,12 +53,10 @@ public ModelAndView listQuartier(HttpSession session,
 	 int total = pageTuts.getTotalPages();
 	 List<ValeurChoix> listValeurChoix = new ArrayList<ValeurChoix>();
 	 listValeurChoix =  pageTuts.getContent();
-	m.addAttribute("total",total);  
-	m.addAttribute("current",page+1); 
-	session.setAttribute("listValeurChoix", listValeurChoix);
-	
-		return new ModelAndView("crud/degustation/ValeurChoix");
-		
+    	m.addAttribute("total",total);  
+    	m.addAttribute("current",page+1); 
+    	session.setAttribute("listValeurChoix", listValeurChoix);	
+		return new ModelAndView("crud/degustation/ValeurChoix");	
 	}
 
 @PostMapping(path = "/AjouterValeurChoix")

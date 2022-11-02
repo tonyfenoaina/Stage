@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Jan 31 14:10:48 CET 2022
+http\://nexus.mateu.io/repository/mateu-central/.error=Could not transfer artifact io.mateu\:prelombok\:pom\:1.18.11.96 from/to mateu-central (http\://nexus.mateu.io/repository/mateu-central)\: Transfer failed for http\://nexus.mateu.io/repository/mateu-central/io/mateu/prelombok/1.18.11.96/prelombok-1.18.11.96.pom 502 Bad Gateway
+https\://repo.maven.apache.org/maven2/.lastUpdated=1643634495897
+@default-mateu-central-http\://nexus.mateu.io/repository/mateu-central/.lastUpdated=1643634648373
+https\://repo.maven.apache.org/maven2/.error=

@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Fri Apr 15 11:20:06 MSK 2022
+@default-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1650010806524
+https\://repo.maven.apache.org/maven2/.error=Could not transfer artifact org.apache.xmlbeans\:xmlbeans\:jar\:2.3.0 from/to central (https\://repo.maven.apache.org/maven2)\: GET request of\: org/apache/xmlbeans/xmlbeans/2.3.0/xmlbeans-2.3.0.jar from central failed

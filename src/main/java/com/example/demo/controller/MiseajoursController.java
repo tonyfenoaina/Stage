@@ -58,8 +58,6 @@ public ResponseEntity<List<Detailproduitdn>> miseajours_Quartier(){
 	return ResponseEntity.ok(list);
 }
 
-
-
 @PostMapping("/testAjoutEnqueteur")
   public ResponseEntity<Enqueteur> createTutorial(@RequestBody List<Enqueteur> list) {
     try {

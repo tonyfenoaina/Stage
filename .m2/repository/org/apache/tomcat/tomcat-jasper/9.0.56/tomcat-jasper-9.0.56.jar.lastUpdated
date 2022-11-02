@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Jan 11 20:01:29 EAT 2022
+@default-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1641920489145
+https\://repo.maven.apache.org/maven2/.error=Could not transfer artifact org.apache.tomcat\:tomcat-jasper\:jar\:9.0.56 from/to central (https\://repo.maven.apache.org/maven2)\: repo.maven.apache.org

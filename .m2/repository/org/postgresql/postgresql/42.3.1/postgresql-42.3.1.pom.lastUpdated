@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Jan 11 20:01:04 EAT 2022
+@default-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1641920464276
+https\://repo.maven.apache.org/maven2/.error=Could not transfer artifact org.postgresql\:postgresql\:pom\:42.3.1 from/to central (https\://repo.maven.apache.org/maven2)\: repo.maven.apache.org

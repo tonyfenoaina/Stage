@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue May 31 22:30:41 AST 2022
+@default-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1654025441222
+https\://repo.maven.apache.org/maven2/.error=Could not transfer artifact com.github.virtuald\:curvesapi\:jar\:sources\:1.06 from/to central (https\://repo.maven.apache.org/maven2)\: repo.maven.apache.org

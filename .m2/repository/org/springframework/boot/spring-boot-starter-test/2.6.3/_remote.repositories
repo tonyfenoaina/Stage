@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat Jan 22 11:08:07 EAT 2022
+spring-boot-starter-test-2.6.3-sources.jar>central=
+spring-boot-starter-test-2.6.3.jar>central=
+spring-boot-starter-test-2.6.3.pom>central=

@@ -45,9 +45,6 @@
             var layer = new Microsoft.Maps.Layer();
             layer.add(pushpin);
             map.layers.insert(layer);
-
-
-
             var infobox = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(listelat[i],listelong[i]), {
             description: '<div style="padding:5px"><b><a href="/listeregion?description="'+description+'"">Affecter</a></b></br></br></br><input type="submit" value="Affecter"></div>',
             visible: false

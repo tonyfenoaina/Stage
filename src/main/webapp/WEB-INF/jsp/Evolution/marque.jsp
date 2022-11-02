@@ -15,12 +15,11 @@ listMarque = (List<Detailmarque>)session.getAttribute("listMarque"); %>
   
     
     <div style="margin-left: 100px;" class="pagetitle">
-      <h1>Gestion des Produits</h1>
+      <h1>Evolution des Produits </h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item ">Evolution des Produits par marque</li> 
-          <li class="breadcrumb-item"><a href="categorie">Categorie</a> </li>
-          <li class="breadcrumb-item active">Marque</li> 
+          <li class="breadcrumb-item active"> Liste Marque</li> 
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -52,19 +51,7 @@ listMarque = (List<Detailmarque>)session.getAttribute("listMarque"); %>
             <div class="col-9">
               <div class="card top-selling overflow-auto">
 
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
+              
                 <div class="card-body pb-0">
                   
                   <!-- <nav class="header-nav ms-auto">
@@ -78,7 +65,7 @@ listMarque = (List<Detailmarque>)session.getAttribute("listMarque"); %>
 
                   </nav>
 
-                  <h5 class="card-title"></h5>
+                  <h5 class="card-title">Evolution des Produits </h5>
                   <div style="margin-top: 20px;" class="row">
                     
                     
@@ -127,9 +114,8 @@ listMarque = (List<Detailmarque>)session.getAttribute("listMarque"); %>
                         <tr>
                           <th></th>
                            <th><%= s.getNom() %></th>  
-                           <th><%= s.getSociete() %></th>  
-                                               
-                          <td> <a href="/Evolution_produit?idmarque=<%=s.getId()%>"><button style="background-color: #025ea7;" type="button" class="btn btn-primary"><i class="ri-edit-2-fill"></i></button></a></td>
+                           <th><%= s.getSociete() %></th>                            
+                          <td> <a href="/Evolution_produit?idmarque=<%=s.getId()%>"><button style="background-color: #025ea7;" type="button" class="btn btn-primary"><i class="bx bx-line-chart"></i></button></a></td>
                           
                      
 

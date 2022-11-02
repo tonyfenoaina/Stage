@@ -9,11 +9,6 @@
   <!-- ======= Header ======= -->
   <jsp:include page="/WEB-INF/jsp/element/header.jsp" />
   <main  id="main" class="main">
-  
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-      A simple success alert—check it out!
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>  
     <div style="margin-left: 100px;" class="pagetitle">
       <h1>Gestion des Produits</h1>
       <nav>
@@ -82,7 +77,6 @@
                     
                   
                     <div style="margin-left: 20px ;" class="col-2">
-                      <button data-bs-toggle="modal" data-bs-target="#Categorie" style="background-color: #025ea7;" type="button" class="btn btn-primary"><i class="bx bxs-plus-circle"></i> Ajouter</button>
                     </div>
 
                   
@@ -147,7 +141,7 @@
                           <th></th>
                            <th><%= s.getNom() %></th>
                            
-                          <td><a href="/Evolution_marque?idcategorie=<%=s.getId()%>"><button style="background-color: #025ea7;" type="button" class="btn btn-primary"><i class="ri-edit-2-fill"></i></button></a></td>
+                          <td><a href="/Evolution_marque?idcategorie=<%=s.getId()%>"><button style="background-color: #025ea7;" type="button" class="btn btn-primary"><i class="bi bi-bar-chart"></i></button></a></td>
                          
                   
                         </tr>

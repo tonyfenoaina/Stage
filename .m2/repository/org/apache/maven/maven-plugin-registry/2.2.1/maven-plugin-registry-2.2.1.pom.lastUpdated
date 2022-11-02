@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Dec 27 17:38:33 EAT 2021
+@default-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1640615913745
+https\://repo.maven.apache.org/maven2/.error=Could not transfer artifact org.apache.maven\:maven-plugin-registry\:pom\:2.2.1 from/to central (https\://repo.maven.apache.org/maven2)\: repo.maven.apache.org

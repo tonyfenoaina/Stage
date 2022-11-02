@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat Jan 08 01:57:40 EAT 2022
+@default-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1641596260621
+https\://repo.maven.apache.org/maven2/.error=Could not transfer artifact org.springframework.data\:spring-data-mongodb\:jar\:sources\:3.3.0 from/to central (https\://repo.maven.apache.org/maven2)\: repo.maven.apache.org

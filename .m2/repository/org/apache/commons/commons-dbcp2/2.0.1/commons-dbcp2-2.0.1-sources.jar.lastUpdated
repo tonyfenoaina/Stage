@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Jan 19 20:30:59 CET 2022
+@default-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1642620659060
+https\://repo.maven.apache.org/maven2/.error=Could not transfer artifact org.apache.commons\:commons-dbcp2\:jar\:sources\:2.0.1 from/to central (https\://repo.maven.apache.org/maven2)\: repo.maven.apache.org

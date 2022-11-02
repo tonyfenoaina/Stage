@@ -14,5 +14,13 @@ public interface Detail_resultat_dnRep extends JpaRepository<Detailresultatdn, S
 
     @Query(value = "Call getnbpdeventeparCategorie(:idm,:m)", nativeQuery = true)
 	public ArrayList<Integer> getnbpdeventeparCategorie(int idm,String m);
+
+    @Query(value = "Call getEvolutionPrix(:idm,:m)", nativeQuery = true)
+	public ArrayList<Integer> getEvolutionPrix(int idm,String m);
+
+    @Query(value = "Call getEvolutionRotation(:idm,:m)", nativeQuery = true)
+	public ArrayList<Integer> getEvolutionRotation(int idm,String m);
+
+    
       
 }

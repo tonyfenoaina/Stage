@@ -15,11 +15,10 @@ listMarque = (List<Detailmarque>)session.getAttribute("listMarque"); %>
   
     
     <div style="margin-left: 100px;" class="pagetitle">
-      <h1>Gestion des Produits</h1>
+      <h1>Evolution des Produits</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item ">Evolution des Produits par marque</li> 
-          <li class="breadcrumb-item"><a href="categorie">Categorie</a> </li>
           <li class="breadcrumb-item active">Marque</li> 
         </ol>
       </nav>
@@ -56,12 +55,11 @@ listMarque = (List<Detailmarque>)session.getAttribute("listMarque"); %>
                   <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                     <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
+                      <h6>Choix</h6>
                     </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                    <li><a class="dropdown-item" href="/Evolution_produit">Dn</a></li>
+                    <li><a class="dropdown-item" href="/Evolution_prix">Prix</a></li>
+                    <li><a class="dropdown-item" href="/Evolution_rotation">Rotation</a></li>
                   </ul>
                 </div>
 
@@ -78,16 +76,16 @@ listMarque = (List<Detailmarque>)session.getAttribute("listMarque"); %>
 
                   </nav>
 
-                  <h5 class="card-title">Evolution</h5>
+                  <h5 class="card-title">Evolution <%=session.getAttribute("enquete")%></h5>
                   <div style="margin-top: 20px;" class="row">
                     
                     
                     <div class="col-4"></div>
 
                   <div class="col-5">
-                    <form action="/Evolution_produitparmois" method="get">
+                    <form action="/<%=session.getAttribute("lien")%>" method="get">
                       <div class="row">
-                       <% if (request.getAttribute("mois1")!=null) {%>
+                       <% if (request.getAttribute("mois2")!=null) {%>
                         <div class="col-5">
                           <input type="month" name="mois1" id="nom"  class="form-control" placeholder="Mois 1" value="<%=request.getAttribute("mois1")%>">
                         </div>
@@ -114,7 +112,7 @@ listMarque = (List<Detailmarque>)session.getAttribute("listMarque"); %>
                   document.addEventListener("DOMContentLoaded", () => {
                     new ApexCharts(document.querySelector("#columnChart"), {
                       series: [
-                      <% if (request.getAttribute("mois1")!=null) { %>
+                      <% if (request.getAttribute("data1")!=null) { %>
                         {
                             name: '<%=request.getAttribute("mois1")%>',
                              data: <%=request.getAttribute("data1")%>
@@ -154,7 +152,7 @@ listMarque = (List<Detailmarque>)session.getAttribute("listMarque"); %>
                       },
                       yaxis: {
                         title: {
-                          text: 'DN (pourcentage)'
+                          text: '<%=session.getAttribute("enquete")%> (<%=session.getAttribute("unite")%>)'
                         }
                       },
                       fill: {
@@ -163,7 +161,7 @@ listMarque = (List<Detailmarque>)session.getAttribute("listMarque"); %>
                       tooltip: {
                         y: {
                           formatter: function(val) {
-                            return "DN " + val + "%"
+                            return "<%=session.getAttribute("enquete")%> " + val + "<%=session.getAttribute("unite")%>"
                           }
                         }
                       }

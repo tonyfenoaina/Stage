@@ -224,23 +224,18 @@
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-people-fill"></i><span>Degustation</span><i class="bi bi-chevron-down ms-auto"></i>
+        <a class="nav-link collapsed" data-bs-target="#components-navs" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-emoji-wink-fill"></i><span>Degustation</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <ul id="components-navs" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="/utilisateur">
-              <i class="bi bi-circle"></i><span>Responsable</span>
+            <a href="/cible">
+              <i class="bi bi-circle"></i><span>Cible</span>
             </a>
           </li>
           <li>
-            <a href="/enqueteur">
-              <i class="bi bi-circle"></i><span>Enqueteur</span>
-            </a>
-          </li>
-          <li>
-            <a href="/fonction">
-              <i class="bi bi-circle"></i><span>Fonction</span>
+            <a href="/degustation">
+              <i class="bi bi-circle"></i><span>Fiche de Degustation</span>
             </a>
           </li>
         </ul>
@@ -294,13 +289,13 @@
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="tables-general.html">
-              <i class="bi bi-circle"></i><span>General Tables</span>
+            <a href="/listproduit_fiche">
+              <i class="bi bi-circle"></i><span>Produit</span>
             </a>
           </li>
           <li>
-            <a href="tables-data.html">
-              <i class="bi bi-circle"></i><span>Data Tables</span>
+            <a href="marque_list_fiche">
+              <i class="bi bi-circle"></i><span>Marque</span>
             </a>
           </li>
         </ul>
@@ -312,18 +307,13 @@
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="charts-chartjs.html">
-              <i class="bi bi-circle"></i><span>Chart.js</span>
+            <a href="/categorieEvolution">
+              <i class="bi bi-circle"></i><span>Evolution des Marques</span>
             </a>
           </li>
           <li>
-            <a href="charts-apexcharts.html">
-              <i class="bi bi-circle"></i><span>ApexCharts</span>
-            </a>
-          </li>
-          <li>
-            <a href="charts-echarts.html">
-              <i class="bi bi-circle"></i><span>ECharts</span>
+            <a href="/marque_list">
+              <i class="bi bi-circle"></i><span>Evolution des Produits</span>
             </a>
           </li>
         </ul>
@@ -338,67 +328,50 @@
             <a href="/categorie">
               <i class="bi bi-circle"></i><span>Gestion des Produits</span>
             </a>
-          </li>
-          <li>
-            <a href="/societe">
-              <i class="bi bi-circle"></i><span>Societe</span>
-            </a>
-          </li>
-          
+          </li>      
         </ul>
       </li><!-- End Icons Nav -->
 
       <li class="nav-heading">Pages</li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
-          <i class="bi bi-person"></i>
-          <span>Profile</span>
+        <a class="nav-link collapsed" href="/Dn">
+          <i class="bi bi-grid"></i>
+          <span> Fiche DN </span>
         </a>
-      </li><!-- End Profile Page Nav -->
-
+      </li>
+     
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
-          <i class="bi bi-question-circle"></i>
-          <span>F.A.Q</span>
+        <a class="nav-link collapsed" href="/degustation">
+          <i class="bi bi-emoji-wink-fill"></i>
+          <span>Fiche Degustation</span>
         </a>
       </li><!-- End F.A.Q Page Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
-          <i class="bi bi-envelope"></i>
-          <span>Contact</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
+      
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-register.html">
+        <a class="nav-link collapsed" href="/ficheenqueteur">
           <i class="bi bi-card-list"></i>
-          <span>Register</span>
+          <span>Suivie Enqueteur</span>
         </a>
       </li><!-- End Register Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
-          <i class="bi bi-box-arrow-in-right"></i>
-          <span>Login</span>
+        <a class="nav-link collapsed" href="/listproduit_fiche">
+          <i class="bx bx-chart"></i>
+          <span>Suivie Produit</span>
         </a>
       </li><!-- End Login Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-error-404.html">
-          <i class="bi bi-dash-circle"></i>
-          <span>Error 404</span>
+        <a class="nav-link collapsed" href="/marque_list">
+          <i class="bx bx-line-chart"></i>
+          <span>Evolution Produit</span>
         </a>
-      </li><!-- End Error 404 Page Nav -->
+      </li><!-- End Login Page Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-blank.html">
-          <i class="bi bi-file-earmark"></i>
-          <span>Blank</span>
-        </a>
-      </li><!-- End Blank Page Nav -->
-
+    
     </ul>
 
   </aside><!-- End Sidebar-->

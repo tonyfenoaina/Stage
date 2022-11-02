@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -106,11 +107,60 @@ public ModelAndView RechercheCategorie(Model m ,HttpSession session,
 
         @GetMapping(path = "/Evolution_produit")
         public ModelAndView Evolution_produit(Model m ,HttpSession session,
-                @RequestParam(name="idmarque") int idmarque) {
+                @RequestParam(name="idmarque",defaultValue = "0") int idmarque) {
+                    session.setAttribute("idmarque", idmarque);
+                    idmarque = (int)session.getAttribute("idmarque");
+                    Date now = new Date();
+                    int mois = now.getMonth() ;
+                    int year = now.getYear()+1900;
+                    String moisnow = year+"-"+mois;
+                    session.setAttribute("lien", "Evolution_produitparmois");
+                    session.setAttribute("enquete", "DN");
+                    session.setAttribute("unite", "%");
+                    m.addAttribute("mois1", moisnow);
+                    m.addAttribute("data1", detailresultatService.getStatistiqueparmoisparmarque(idmarque,moisnow));
+                    m.addAttribute("data2", detailresultatService.getStatistiqueparmoisparmarque(idmarque,"2022-1"));
                     m.addAttribute("nomProduit", detailresultatService.getNomparmoisparmarque(idmarque,"2022-1"));  
                     session.setAttribute("idevolutionmarque", idmarque);	
               return new ModelAndView("Evolution/evolutionproduit");			
           }
+
+          @GetMapping(path = "/Evolution_prix")
+          public ModelAndView Evolution_prix(Model m ,HttpSession session) {
+                    int idmarque = (int)session.getAttribute("idmarque");
+
+                      Date now = new Date();
+                      int mois = now.getMonth() ;
+                      int year = now.getYear()+1900;
+                      String moisnow = year+"-"+mois;
+                      session.setAttribute("lien", "Evolution_prixparmois");
+                      session.setAttribute("enquete", "Prix");
+                      session.setAttribute("unite", "Ariary");
+                      m.addAttribute("mois1", moisnow);
+                      m.addAttribute("data1", detail_resultat_dnRep.getEvolutionPrix(idmarque,moisnow));
+                      m.addAttribute("data2", detail_resultat_dnRep.getEvolutionPrix(idmarque,"2022-1"));
+                      m.addAttribute("nomProduit", detailresultatService.getNomparmoisparmarque(idmarque,"2022-1"));  
+                      session.setAttribute("idevolutionmarque", idmarque);	
+                return new ModelAndView("Evolution/evolutionproduit");			
+            }
+
+            @GetMapping(path = "/Evolution_rotation")
+            public ModelAndView Evolution_rotation(Model m ,HttpSession session) {
+                        int idmarque = (int)session.getAttribute("idmarque");
+                        Date now = new Date();
+                        int mois = now.getMonth() ;
+                        int year = now.getYear()+1900;
+                        String moisnow = year+"-"+mois;
+                        session.setAttribute("lien", "Evolution_rotationparmois");
+                        session.setAttribute("enquete", "Rotation");
+                        session.setAttribute("unite", "par point de vente");
+                        m.addAttribute("mois1", moisnow);
+                        m.addAttribute("data1", detail_resultat_dnRep.getEvolutionRotation(idmarque,moisnow));
+                        m.addAttribute("data2", detail_resultat_dnRep.getEvolutionRotation(idmarque,"2022-1"));
+                        m.addAttribute("nomProduit", detailresultatService.getNomparmoisparmarque(idmarque,"2022-1"));  
+                        session.setAttribute("idevolutionmarque", idmarque);	
+                  return new ModelAndView("Evolution/evolutionproduit");			
+              }
 
           @GetMapping(path = "/Evolution_marque")
         public ModelAndView Evolution_produitparCategorie(Model m ,HttpSession session,
@@ -125,11 +175,9 @@ public ModelAndView RechercheCategorie(Model m ,HttpSession session,
                   @RequestParam(name="mois1") String mois1,
                   @RequestParam(name="mois2") String mois2) {
                     int idmarque = (int)session.getAttribute("idevolutionmarque");
-                    //JsonParser mJSONArray = new JSONParser(detailresultatService.getNomparmoisparmarque(idmarque,mois1).toString()); 
-                   
+                    //JsonParser mJSONArray = new JSONParser(detailresultatService.getNomparmoisparmarque(idmarque,mois1).toString());                  
                     m.addAttribute("mois1", mois1);
                         m.addAttribute("mois2", mois2);
-
                     System.out.println("mois1"+mois1);
                    
                     m.addAttribute("nomProduit", detailresultatService.getNomparmoisparmarque(idmarque,mois1));
@@ -142,7 +190,44 @@ public ModelAndView RechercheCategorie(Model m ,HttpSession session,
                 return new ModelAndView("Evolution/evolutionproduit");			
             }
 
-            @GetMapping(path = "/Evolution_marqueparmois")
+            @GetMapping(path = "/Evolution_prixparmois")
+            public ModelAndView Evolution_prixparmois(Model m ,HttpSession session,
+                    @RequestParam(name="mois1") String mois1,
+                    @RequestParam(name="mois2") String mois2) {
+                      int idmarque = (int)session.getAttribute("idevolutionmarque");
+                      //JsonParser mJSONArray = new JSONParser(detailresultatService.getNomparmoisparmarque(idmarque,mois1).toString());                  
+                      m.addAttribute("mois1", mois1);
+                          m.addAttribute("mois2", mois2);
+                      System.out.println("mois1"+mois1);
+                     
+                      m.addAttribute("nomProduit", detailresultatService.getNomparmoisparmarque(idmarque,mois1));
+                      System.out.println("tyyyyyyy"+detailresultatService.getNomparmoisparmarque(idmarque,mois1));
+                      System.out.println("aiza");
+                      
+                      m.addAttribute("data1", detail_resultat_dnRep.getEvolutionPrix(idmarque,mois1));
+                      m.addAttribute("data2", detail_resultat_dnRep.getEvolutionPrix(idmarque,mois2));
+                                          
+                  return new ModelAndView("Evolution/evolutionproduit");			
+              }
+
+              @GetMapping(path = "/Evolution_rotationparmois")
+              public ModelAndView Evolution_rotationparmois(Model m ,HttpSession session,
+                      @RequestParam(name="mois1") String mois1,
+                      @RequestParam(name="mois2") String mois2) {
+                        int idmarque = (int)session.getAttribute("idevolutionmarque");
+                        //JsonParser mJSONArray = new JSONParser(detailresultatService.getNomparmoisparmarque(idmarque,mois1).toString());                  
+                        m.addAttribute("mois1", mois1);
+                        m.addAttribute("mois2", mois2);
+                        System.out.println("mois1"+mois1);           
+                        m.addAttribute("nomProduit", detailresultatService.getNomparmoisparmarque(idmarque,mois1));
+                        System.out.println("tyyyyyyy"+detailresultatService.getNomparmoisparmarque(idmarque,mois1));
+                        System.out.println("aiza");              
+                        m.addAttribute("data1", detail_resultat_dnRep.getEvolutionRotation(idmarque,mois1));
+                        m.addAttribute("data2", detail_resultat_dnRep.getEvolutionRotation(idmarque,mois2));                                
+                    return new ModelAndView("Evolution/evolutionproduit");			
+                }
+
+      @GetMapping(path = "/Evolution_marqueparmois")
           public ModelAndView Evolution_marqueparmois(Model m ,HttpSession session,
                   @RequestParam(name="mois1") String mois1,
                   @RequestParam(name="mois2") String mois2) {

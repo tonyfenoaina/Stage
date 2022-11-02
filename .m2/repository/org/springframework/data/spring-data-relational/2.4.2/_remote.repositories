@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Thu Aug 25 11:35:42 AST 2022
+spring-data-relational-2.4.2.jar>central=
+spring-data-relational-2.4.2-sources.jar>central=
+spring-data-relational-2.4.2.pom>central=

@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.demo.repository.DetailquartierRep;
 import com.example.demo.repository.QuartierRep;
 import com.example.demo.repository.VilleRep;
+import com.example.demo.service.RotationPrixService;
 
 @Controller
 public class PageController {
@@ -26,9 +27,14 @@ public class PageController {
 	
 	@Autowired
 	DetailquartierRep detailquartierRep;
+
+	@Autowired
+	RotationPrixService rotationPrixService;
 	
 	 @GetMapping(path = "/")
-	  public ModelAndView firstPage() {		 	
+	  public ModelAndView firstPage() {	
+		
+		rotationPrixService.test();	 	
 			return new ModelAndView("login");
 		}
 	 
@@ -38,10 +44,7 @@ public class PageController {
 		}
 	 
 	
-	 @GetMapping(path = "/suivie")
-	  public ModelAndView suivie() {		 	
-			return new ModelAndView("carte");
-		}
+	
 	
 	
 }

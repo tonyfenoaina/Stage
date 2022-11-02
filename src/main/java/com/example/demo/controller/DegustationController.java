@@ -56,7 +56,6 @@ public ModelAndView Degustation(HttpSession session,
   m.addAttribute("current",page+1); 
   session.setAttribute("listDegustation", listDn);		
       return new ModelAndView("crud/degustation/Degustation");
-      
   }
 
   @GetMapping(path = "/pageCategorieDegustation")

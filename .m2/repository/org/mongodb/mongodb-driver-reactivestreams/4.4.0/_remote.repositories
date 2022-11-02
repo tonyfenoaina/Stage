@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Jan 18 00:56:10 EAT 2022
+mongodb-driver-reactivestreams-4.4.0-sources.jar>central=
+mongodb-driver-reactivestreams-4.4.0.jar>central=
+mongodb-driver-reactivestreams-4.4.0.pom>central=
