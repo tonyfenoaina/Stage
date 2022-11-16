@@ -13,17 +13,19 @@ import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import com.example.demo.model.Categorie;
+
 //import com.example.demo.model.Vehicule;
  
 public class ExportExcel {
     private XSSFWorkbook workbook;
     private XSSFSheet sheet;
-   // private List<Vehicule> listUsers;
+    private List<Categorie> listUsers;
      
-   // public ExportExcel(List<Vehicule> listUsers) {
-     //   this.listUsers = listUsers;
-      //  workbook = new XSSFWorkbook();
-    //}
+   public ExportExcel(List<Categorie> listUsers) {
+       this.listUsers = listUsers;
+       workbook = new XSSFWorkbook();
+    }
  
  
     private void writeHeaderLine() {

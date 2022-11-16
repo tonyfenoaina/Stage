@@ -74,7 +74,6 @@ public ModelAndView Degustation(HttpSession session,
     return new ModelAndView("crud/degustation/categorie");			
     }
 
-    
     @GetMapping(path = "/pageAjoutDegustation")
 	  public ModelAndView pageAjoutEnquete(HttpSession session,
 			  Model m,

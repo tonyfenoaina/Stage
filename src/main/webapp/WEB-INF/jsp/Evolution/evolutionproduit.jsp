@@ -33,7 +33,6 @@ listMarque = (List<Detailmarque>)session.getAttribute("listMarque"); %>
 
             <!-- Sales Card -->
            
-
             <!-- Customers Card -->
            <!-- End Customers Card -->
 
@@ -52,7 +51,7 @@ listMarque = (List<Detailmarque>)session.getAttribute("listMarque"); %>
               <div class="card top-selling overflow-auto">
 
                 <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <a class="icon" href="#" data-bs-toggle="dropdown">Filtre</a>
                   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                     <li class="dropdown-header text-start">
                       <h6>Choix</h6>
@@ -64,7 +63,6 @@ listMarque = (List<Detailmarque>)session.getAttribute("listMarque"); %>
                 </div>
 
                 <div class="card-body pb-0">
-                  
                   <!-- <nav class="header-nav ms-auto">
                     <ul class="d-flex align-items-center">
                       <li class="nav-item d-block d-lg-none">
@@ -73,7 +71,6 @@ listMarque = (List<Detailmarque>)session.getAttribute("listMarque"); %>
                         </a>
                       </li>
                     </ul> -->
-
                   </nav>
 
                   <h5 class="card-title">Evolution <%=session.getAttribute("enquete")%></h5>

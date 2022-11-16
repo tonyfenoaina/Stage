@@ -45,7 +45,7 @@ public ModelAndView Categorie(HttpSession session,
 
 @PostMapping(path = "/RechercheCategorie")
 public ModelAndView RechercheCategorie(Model m ,HttpSession session,
-		  @RequestParam(name = "nom",required = false) String nom,
+		  @RequestParam(name = "nom",required = true) String nom,
 		  @RequestParam(name="page" ,defaultValue = "0") int page,
 	      @RequestParam(name="size", defaultValue = "6") int size) {	
 		

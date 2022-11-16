@@ -228,7 +228,7 @@ listProduit = (List<Detailproduit>)session.getAttribute("listProduit"); %>
                         	}else{                   
                         %>
                         
-                      <tr style="background-color;">
+                      <tr style="background-color">
                         <th><%= s.getId() %></th>
                         <th><%= s.getNom() %></th>  
                         <th><%= s.getDescription() %></th>                    

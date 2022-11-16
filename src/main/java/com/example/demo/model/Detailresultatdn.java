@@ -12,10 +12,21 @@ public class Detailresultatdn {
     @Id
 	private Integer id;
 
-    @Column(name = "mois")
+	@Column(name = "mois")
 	int mois;
 
-    @Column(name = "annee")
+    @Column(name = "iddn")
+	int iddn;
+
+    public int getIddn() {
+		return iddn;
+	}
+
+	public void setIddn(int iddn) {
+		this.iddn = iddn;
+	}
+
+	@Column(name = "annee")
 	int annee;
 
 	@Column(name = "idmarque")

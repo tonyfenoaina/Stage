@@ -65,6 +65,7 @@
                   <input type="hidden" name="id" value="<%= session.getAttribute("idenqueteur")%>">
                   <div class="row">
                     <%
+                    
                         if(request.getAttribute("retour")!=null){                             
                     %>
                     <div class="col-6">
@@ -72,7 +73,7 @@
                     </div>
                     <%}else{%>
                       <div class="col-6">
-                        <input type="date" name="date" id="nom"  class="form-control" placeholder="Recherche">
+                        <input type="date" name="date" id="nom" value="<%=session.getAttribute("date")%>" class="form-control" placeholder="Recherche">
                       </div>
                     <%}%>
                     <div class="col-2">

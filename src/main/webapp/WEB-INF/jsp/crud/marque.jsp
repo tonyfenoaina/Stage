@@ -247,7 +247,7 @@ listMarque = (List<Detailmarque>)session.getAttribute("listMarque"); %>
                         	}else{                   
                         %>
                         
-                      <tr style="background-color;">
+                      <tr >
                         <th><%= s.getId() %></th>
                          <th><%= s.getNom() %></th>   
         

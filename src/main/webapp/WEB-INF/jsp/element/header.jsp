@@ -170,7 +170,7 @@
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
               <h6>Tony Fenoaina Randriamampianina</h6>
-              <span>Web Designer</span>
+              <span>Web Developper</span>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -368,6 +368,20 @@
         <a class="nav-link collapsed" href="/marque_list">
           <i class="bx bx-line-chart"></i>
           <span>Evolution Produit</span>
+        </a>
+      </li><!-- End Login Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/resultatdn">
+          <i class="bx bx-line-chart"></i>
+          <span>Resultat DN</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/resultatdegustation">
+          <i class="bx bx-line-chart"></i>
+          <span>Resultat Degustation</span>
         </a>
       </li><!-- End Login Page Nav -->
 

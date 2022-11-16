@@ -32,10 +32,9 @@ public class PageController {
 	RotationPrixService rotationPrixService;
 	
 	 @GetMapping(path = "/")
-	  public ModelAndView firstPage() {	
-		
+	  public String firstPage() {	
 		rotationPrixService.test();	 	
-			return new ModelAndView("login");
+			return "login";
 		}
 	 
 	 @PostMapping(path = "/home")

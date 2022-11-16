@@ -228,7 +228,7 @@
                         	}else{                   
                         %>
                         
-                      <tr style="background-color;">
+                      <tr>
                         <th><%= s.getId() %></th>
                          <th><%= s.getNom() %></th>                     
                         <td> <button data-bs-toggle="modal" data-bs-target="#haha<%=s.getId()%>" style="background-color: #025ea7;" type="button" class="btn btn-primary"><i class="ri-edit-2-fill"></i></button></td>

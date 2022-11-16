@@ -150,8 +150,9 @@
                         <th scope="col">ID</th>
                         <th scope="col">NOM</th>
                         <th scope="col">Modifier</th>
-                        <th scope="col">Etat</th>
+                      
                         <th scope="col">Choix</th>               
+                        <th scope="col">Etat</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -183,6 +184,7 @@
                           </div>
                         </div>
                       </div>
+                      <td> <a href="/choixcible?idcible=<%=s.getId()%>"><button style="background-color: #025ea7;" type="button" class="btn btn-primary"><i class="bi bi-plus-lg"></i> </button></a></td> 
                       <% 
                       if (s.getEtat().equals("active")){ 
                         
@@ -243,7 +245,7 @@
                     </div>
                       
                       <% }%>
-                      <td> <a href="/choixcible?idcible=<%=s.getId()%>"><button style="background-color: #025ea7;" type="button" class="btn btn-primary"><i class="bi bi-toggle-off"></i> </button></a></td> 
+                    
 
                     </tr>
 
